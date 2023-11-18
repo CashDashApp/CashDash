@@ -1,18 +1,17 @@
 package org.cashdash.models;
 
 public abstract class Item {
-    private String nama;
+    private String name;
     private Integer id;
     private Integer stock;
 
-    public Item(String nama, Integer id, Integer stock){
-        this.nama = nama;
-        this.id = id;
+    public Item(String name, Integer stock){
+        this.name = name;
         this.stock = stock;
     }
     
-    public String getNama() {
-        return nama;
+    public String getName() {
+        return name;
     }
 
     public Integer getId() {
@@ -23,8 +22,8 @@ public abstract class Item {
         return stock;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setId(Integer id) {
