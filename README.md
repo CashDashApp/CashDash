@@ -10,7 +10,7 @@ Simple POS desktop application for final project OOP course.
 git pull origin <branch>
 ```
 
-1. Add all modified files (goto root project directory at first)
+2. Add all modified files (goto root project directory at first)
 
 ```
 git add .
