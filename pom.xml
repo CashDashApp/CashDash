@@ -44,6 +44,11 @@
             <version>5.2.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE190</version>
+        </dependency>
     </dependencies>
 
 </project>
