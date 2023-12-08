@@ -7,10 +7,6 @@ package org.cashdash.views;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author HP
- */
 public class HomePage extends javax.swing.JFrame {
 
     /**
@@ -18,7 +14,9 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,16 +136,16 @@ public class HomePage extends javax.swing.JFrame {
         Welcome_PanelLayout.setHorizontalGroup(
             Welcome_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Welcome_PanelLayout.createSequentialGroup()
-                .addContainerGap(394, Short.MAX_VALUE)
+                .addContainerGap(419, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(389, 389, 389))
+                .addGap(442, 442, 442))
         );
         Welcome_PanelLayout.setVerticalGroup(
             Welcome_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Welcome_PanelLayout.createSequentialGroup()
-                .addContainerGap(359, Short.MAX_VALUE)
+                .addContainerGap(362, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(356, 356, 356))
+                .addGap(353, 353, 353))
         );
 
         Show_Panel.add(Welcome_Panel, "card3");
@@ -156,7 +154,7 @@ public class HomePage extends javax.swing.JFrame {
         Pemesanan_Panel.setLayout(Pemesanan_PanelLayout);
         Pemesanan_PanelLayout.setHorizontalGroup(
             Pemesanan_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGap(0, 1086, Short.MAX_VALUE)
         );
         Pemesanan_PanelLayout.setVerticalGroup(
             Pemesanan_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +167,7 @@ public class HomePage extends javax.swing.JFrame {
         PrintBill_Panel.setLayout(PrintBill_PanelLayout);
         PrintBill_PanelLayout.setHorizontalGroup(
             PrintBill_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGap(0, 1086, Short.MAX_VALUE)
         );
         PrintBill_PanelLayout.setVerticalGroup(
             PrintBill_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +180,7 @@ public class HomePage extends javax.swing.JFrame {
         Storage_Panel.setLayout(Storage_PanelLayout);
         Storage_PanelLayout.setHorizontalGroup(
             Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGap(0, 1086, Short.MAX_VALUE)
         );
         Storage_PanelLayout.setVerticalGroup(
             Storage_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,11 +194,11 @@ public class HomePage extends javax.swing.JFrame {
         BackroundPanelLayout.setHorizontalGroup(
             BackroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackroundPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Navigation_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Show_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Show_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1086, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         BackroundPanelLayout.setVerticalGroup(
             BackroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,9 +214,7 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(BackroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(BackroundPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,22 +300,16 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackroundPanel;
-    private javax.swing.JButton LogOutbtn1;
     private javax.swing.JButton LogOutbtn2;
-    private javax.swing.JPanel NavigationPanel;
     private javax.swing.JPanel Navigation_Panel;
     private javax.swing.JPanel Pemesanan_Panel;
-    private javax.swing.JButton Pemesananbtn;
     private javax.swing.JButton Pemesananbtn1;
     private javax.swing.JPanel PrintBill_Panel;
-    private javax.swing.JButton PrintBillbtn;
     private javax.swing.JButton PrintBillbtn1;
     private javax.swing.JPanel Show_Panel;
     private javax.swing.JPanel Storage_Panel;
-    private javax.swing.JButton Storagebtn;
     private javax.swing.JButton Storagebtn1;
     private javax.swing.JPanel Welcome_Panel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
