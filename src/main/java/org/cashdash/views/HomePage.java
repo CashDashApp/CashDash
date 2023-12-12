@@ -8,11 +8,13 @@ package org.cashdash.views;
 import javax.swing.JOptionPane;
 
 public class HomePage extends javax.swing.JFrame {
-
-    /**
-     * Creates new form HomePage
-     */
+    ScreenData Data = new ScreenData();
+    
+    
     public HomePage() {
+        Data.get_Category();
+        Data.get_Product();
+        Data.get_TabelStorage();
         initComponents();
         
     }
@@ -34,6 +36,7 @@ public class HomePage extends javax.swing.JFrame {
         Pemesananbtn1 = new javax.swing.JButton();
         Storagebtn1 = new javax.swing.JButton();
         LogOutbtn2 = new javax.swing.JButton();
+        Pemesananbtn2 = new javax.swing.JButton();
         Show_Panel = new javax.swing.JPanel();
         Welcome_Panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -88,6 +91,15 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        Pemesananbtn2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Pemesananbtn2.setForeground(new java.awt.Color(0, 153, 255));
+        Pemesananbtn2.setText("Transaksi");
+        Pemesananbtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pemesananbtn2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Navigation_PanelLayout = new javax.swing.GroupLayout(Navigation_Panel);
         Navigation_Panel.setLayout(Navigation_PanelLayout);
         Navigation_PanelLayout.setHorizontalGroup(
@@ -102,7 +114,8 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Navigation_PanelLayout.createSequentialGroup()
                         .addGap(0, 9, Short.MAX_VALUE)
                         .addComponent(jLabel2)
-                        .addGap(12, 12, 12)))
+                        .addGap(12, 12, 12))
+                    .addComponent(Pemesananbtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Navigation_PanelLayout.setVerticalGroup(
@@ -114,11 +127,13 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(Pemesananbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(PrintBillbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(81, 81, 81)
+                .addComponent(Pemesananbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Storagebtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(92, 92, 92)
                 .addComponent(LogOutbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(108, 108, 108))
         );
 
         Show_Panel.setBackground(new java.awt.Color(0, 153, 255));
@@ -262,6 +277,15 @@ public class HomePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LogOutbtn2ActionPerformed
 
+    private void Pemesananbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pemesananbtn2ActionPerformed
+        Show_Panel.removeAll();
+       
+        Transaction_Panel Transaksi = new Transaction_Panel(); // Instantiate the HomePanel
+        Show_Panel.add(Transaksi);
+        Show_Panel.repaint();
+        Show_Panel.revalidate();
+    }//GEN-LAST:event_Pemesananbtn2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,6 +328,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel Navigation_Panel;
     private javax.swing.JPanel Pemesanan_Panel;
     private javax.swing.JButton Pemesananbtn1;
+    private javax.swing.JButton Pemesananbtn2;
     private javax.swing.JPanel PrintBill_Panel;
     private javax.swing.JButton PrintBillbtn1;
     private javax.swing.JPanel Show_Panel;

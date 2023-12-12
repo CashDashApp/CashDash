@@ -9,7 +9,7 @@ package org.cashdash.views;
  * @author HP
  */
 public class Storage_Panel extends javax.swing.JPanel {
-
+    ScreenData Data = new ScreenData();
     /**
      * Creates new form Storage_Panel
      */
@@ -37,21 +37,7 @@ public class Storage_Panel extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Storage");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Barang", "Sisa Stock"
-            }
-        ));
+        jTable1.setModel(Data.Storage_Panel);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
