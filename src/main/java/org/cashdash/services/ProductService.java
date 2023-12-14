@@ -37,8 +37,12 @@ public class ProductService {
         ArrayList<Product> products = new ArrayList<>();
 
         try (ResultSet result = Database.executeQuery("SELECT * FROM products INNER JOIN category ON category.id = products.category_id")) {
-            Product product = storeResultToProduct(result);
-            if (product != null) {
+            for (;;) {
+                Product product = storeResultToProduct(result);
+
+                if (product == null)
+                    break;
+
                 products.add(product);
             }
         }
