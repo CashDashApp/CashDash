@@ -16,16 +16,16 @@ public class UserService {
             if (result == null || !result.next())
                 return null;
 
-            User user = new User(
+            User u = new User(
                     result.getString("fullname"),
                     result.getString("username"),
                     result.getString("password"),
                     result.getBoolean("is_admin")
             );
 
-            user.setId(result.getInt("id"));
+            u.setId(result.getInt("id"));
 
-            return user;
+            return u;
         }
     }
 
