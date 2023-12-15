@@ -1,6 +1,8 @@
 package org.cashdash.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 //import java.util.UUID;
 
 public class Transaction {
@@ -8,8 +10,8 @@ public class Transaction {
     private User user;
     private Customer customer;
     private Invoice invoice;
-    private Order[] orders;
-    private LocalDateTime date;
+    private ArrayList<Order> orders;
+    private LocalDate date;
     private boolean status;
 
 
@@ -48,19 +50,19 @@ public class Transaction {
         this.invoice = invoice;
     }
 
-    public Order[] getOrders() {
+    public ArrayList<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(Order[] orders) {
+    public void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
