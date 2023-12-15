@@ -1,16 +1,18 @@
 package org.cashdash;
 
-import org.cashdash.controllers.Authentication;
-import org.cashdash.models.User;
-import org.cashdash.views.LoginForm;
+import org.cashdash.models.Product;
+import org.cashdash.services.ProductService;
 
-import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        LoginForm loginForm = new LoginForm();
+        try {
+            for (Product p : ProductService.getAll()) {
+                System.out.println(p.getName());
+            }
 
-        loginForm.display();
-
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

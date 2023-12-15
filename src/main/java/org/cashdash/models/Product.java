@@ -6,9 +6,10 @@ public class Product extends Item {
     private String imageUrl;
     private double price;
 
-    public Product(String name, String description, Integer stock) {
-        super(name, stock);
+    public Product(int id, String name, String description, Integer stock, double price) {
+        super(id, name, stock);
         this.description = description;
+        this.price = price;
     }
 
     public Category getCategory() {

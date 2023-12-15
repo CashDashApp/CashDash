@@ -7,15 +7,11 @@ public class Equipment extends Item {
     private LocalDate datein;
     private String condtion;
 
-    public Equipment(String type, LocalDate datein, String condtion, String name, Integer stock) {
-        super(name, stock);
+    public Equipment(int id, String type, LocalDate datein, String condtion, String name, Integer stock) {
+        super(id, name, stock);
         this.type = type;
         this.datein = datein;
         this.condtion = condtion;
-    }
-
-    public Equipment(String name, Integer stock) {
-        super(name, stock);
     }
 
     public void setType(String type) {

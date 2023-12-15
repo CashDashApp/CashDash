@@ -22,16 +22,16 @@ public class ScreenData {
     
     
     public void get_Category(){
-        Category C = new Category("Makanan");
+        /*Category C = new Category("Makanan");
         C.setId(0);
         ObjCategory.add(C);
         C = new Category("Minuman");
         C.setId(1);
-        ObjCategory.add(C);
+        ObjCategory.add(C);*/
     }
     
     public void get_Product(){
-        Product P = new Product("Batagor","Batagor 15.000 terlalu kenyang",99);
+        /*Product P = new Product("Batagor","Batagor 15.000 terlalu kenyang",99);
         P.setId(0);
         P.setImageUrl("/image/Batagor.jpg");
         P.setCategory(ObjCategory.getFirst());
@@ -58,7 +58,7 @@ public class ScreenData {
         P.setImageUrl("/image/Mango SMoothie.jpg");
         P.setCategory(ObjCategory.getLast());
         P.setPrice(50000);
-        ObjProduct.add(P);  
+        ObjProduct.add(P);  */
     }
     
     public void get_TabelStorage(){

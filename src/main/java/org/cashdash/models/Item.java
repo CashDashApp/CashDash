@@ -5,7 +5,8 @@ public abstract class Item {
     private Integer id;
     private Integer stock;
 
-    public Item(String name, Integer stock){
+    public Item(int id, String name, Integer stock){
+        this.id = id;
         this.name = name;
         this.stock = stock;
     }
