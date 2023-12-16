@@ -4,7 +4,10 @@
  */
 package org.cashdash.views;
 
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import org.cashdash.models.Order;
+import org.cashdash.models.Transaction;
 
 /**
  *
@@ -97,23 +100,23 @@ public class UpdateTransaksi extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        System.out.println(Data.ArrOrder.size());
-        for(int i = 0; i < Data.ArrOrder.size(); i++){
-            System.out.println(i);
-            System.out.println("Tes");
-            if(Data.Transaction_Panel.getValueAt(i, 2).equals(jList2.getSelectedValue())){
-                System.out.println("Tes");
-                Object value1 = Data.Print_Bill.getValueAt(i, 3);
-                Object value2 = Data.Transaction_Panel.getValueAt(i, 4);
-                int result = ((Number) value1).intValue() + ((Number) value2).intValue();
-                System.out.println(i);
-                Data.Transaction_Panel.setValueAt(result,i, 4);
-                System.out.println("tes");          
-            }
+        if(jList2.getSelectedIndex() != -1){
+            
+            //Object value2 = Data.Transaction_Panel.getValueAt(i, 4);
+            //Object value1 = Data.Print_Bill.getValueAt(i, 3);
+            //int result = ((Number) value1).intValue() + ((Number) value2).intValue();
+            //Data.Transaction_Panel.setValueAt(result,i, 4);
+            Transaction Transaksi = Data.SearchCustomer(jList2.getSelectedValue());
+            ArrayList<Order> arr = Transaksi.getOrders();
+            Transaksi.SumHarga();
+            arr.addAll(Data.ArrOrder);
+            Transaksi.setOrders(arr);
+            System.out.println(Transaksi.getOrders().get(0).getProduct());
+            System.out.println(arr);
+            Data.ResetOrder();
+            System.out.println("Tes" + Transaksi.getCustomer().getNama());
+            dispose();
         }
-        Data.ResetOrder();
-        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -112,24 +112,24 @@ public class PrintBill_Panel extends javax.swing.JPanel {
         if(jComboBox1.getSelectedItem().toString().equals("Ya")){
             
             HomePage home = new HomePage();
-            for(int i = 0; i < jTable1.getRowCount();i++){
-                Harga = Harga + (int) jTable1.getValueAt(i, 3);
-            }
+            //for(int i = 0; i < jTable1.getRowCount();i++){
+            //    Harga = Harga + (int) jTable1.getValueAt(i, 3);
+           // }
 
-            Data_Customer dialog = new Data_Customer(home,true,Harga);
+            Data_Customer dialog = new Data_Customer(home,true);
+            
             dialog.setVisible(true);
             
         }else if(jComboBox1.getSelectedItem().toString().equals("Tidak")){
             HomePage home = new HomePage();
-            for(int i = 0; i < jTable1.getRowCount();i++){
-                Harga = Harga + (int) jTable1.getValueAt(i, 3);
-            }
+            //for(int i = 0; i < jTable1.getRowCount();i++){
+            //    Harga = Harga + (int) jTable1.getValueAt(i, 3);
+            //}
             UpdateTransaksi Transaksi = new UpdateTransaksi(home, true);
-            Transaksi.setVisible(true);
             
-           
-            
+            Transaksi.setVisible(true);  
         }
+        
         
         
         

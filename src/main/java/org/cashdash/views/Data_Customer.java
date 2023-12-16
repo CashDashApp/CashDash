@@ -7,8 +7,10 @@ package org.cashdash.views;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import org.cashdash.models.Customer;
 import org.cashdash.models.Invoice;
+import org.cashdash.models.Order;
 import org.cashdash.models.Transaction;
 
 /**
@@ -23,7 +25,7 @@ public class Data_Customer extends javax.swing.JDialog {
     /**
      * Creates new form Data_Customer
      */
-    public Data_Customer(java.awt.Frame parent, boolean modal,int Harga) {
+    public Data_Customer(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.Harga = Harga;
         initComponents();
@@ -127,19 +129,21 @@ public class Data_Customer extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Invoice inv = new Invoice(null,this.Harga);
+       // Invoice inv = new Invoice(null,this.Harga);
         Customer pembeli = new Customer(jTextField1.getText(), jTextField2.getText());
         
         
         
         Transaction trs = new Transaction();
-        trs.setOrders(Data.ArrOrder);
+        ArrayList<Order> ArrOrderBefore = new ArrayList<Order>();
+        ArrOrderBefore.addAll(Data.ArrOrder);
+        trs.setOrders(ArrOrderBefore);
         trs.setDate(LocalDate.now());
-        trs.setInvoice(inv);
+        //trs.setInvoice(inv);
         trs.setCustomer(pembeli);
         Data.ObjTransaction.add(trs);
-        Data.add_Transaction("", "Admin", trs.getCustomer().getNama(), trs.getCustomer().getPhoneNumber(), (int) trs.getInvoice().getAmount(), trs.getDate().toString());
-        
+        System.out.println("Total : " +Data.ObjTransaction.get(0).SumHarga());
+        //Data.add_Transaction("", "Admin", trs.getCustomer().getNama(), trs.getCustomer().getPhoneNumber(), (int) trs.getInvoice().getAmount(), trs.getDate().toString());
         Data.ResetOrder();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -174,7 +178,7 @@ public class Data_Customer extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Data_Customer dialog = new Data_Customer(new javax.swing.JFrame(), true,0);
+                Data_Customer dialog = new Data_Customer(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

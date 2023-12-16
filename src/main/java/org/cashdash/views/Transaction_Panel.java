@@ -15,7 +15,10 @@ public class Transaction_Panel extends javax.swing.JPanel {
      * Creates new form Transaction_Panel
      */
     public Transaction_Panel() {
+        Data.getTableTransaction();
+        
         initComponents();
+        jTable1.setModel(Data.Transaction_Panel);
     }
 
     /**

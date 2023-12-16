@@ -73,4 +73,14 @@ public class Transaction {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    
+    public double SumHarga(){
+        double hasil = 0;
+        for(int i = 0; i < orders.size();i++){
+            
+            hasil = hasil + orders.get(i).getProduct().getPrice() * orders.get(i).getCount();
+            System.out.println(hasil);
+        }
+        return hasil;
+    }
 }

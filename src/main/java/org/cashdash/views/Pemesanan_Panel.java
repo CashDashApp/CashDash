@@ -1209,6 +1209,7 @@ public class Pemesanan_Panel extends javax.swing.JPanel {
         
         Data.add_PrintBill(LabelProduk, LabelHarga, JumlahPesanan, Total);
         Product Prodak = Data.Search(LabelProduk);
+        System.out.println("Produk :"+Prodak);
         Order InputOrder = new Order(JumlahPesanan,Prodak);
         
         Data.ArrOrder.add(InputOrder);

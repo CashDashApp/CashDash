@@ -22,43 +22,34 @@ public class ScreenData {
     
     
     public void get_Category(){
-        /*Category C = new Category("Makanan");
-        C.setId(0);
+        Category C = new Category(0, "Makanan");
         ObjCategory.add(C);
-        C = new Category("Minuman");
-        C.setId(1);
-        ObjCategory.add(C);*/
+        C = new Category(1, "Minuman");
+        ObjCategory.add(C);
     }
     
     public void get_Product(){
-        /*Product P = new Product("Batagor","Batagor 15.000 terlalu kenyang",99);
+        Product P = new Product(1,"Batagor","Batagor 15.000 terlalu kenyang",99,100000);
         P.setId(0);
         P.setImageUrl("/image/Batagor.jpg");
         P.setCategory(ObjCategory.getFirst());
         P.setPrice(100000);
         ObjProduct.add(P);
         
-        P = new Product("Spaghetti","Italiano Cappucino",99);
+        P = new Product(2, "Spaghetti","Italiano Cappucino",99,60000);
         P.setId(1);
         P.setImageUrl("/image/Spageti.jpg");
         P.setCategory(ObjCategory.getFirst());
         P.setPrice(60000);
         ObjProduct.add(P);
         
-        P = new Product("Steak","Japanese Wagyu A5?",99);
+        P = new Product(3, "Steak","Japanese Wagyu A5?",99, 70000);
         P.setId(2);
         P.setImageUrl("/image/Steak.jpg");
         P.setCategory(ObjCategory.getFirst());
         P.setPrice(70000);
         ObjProduct.add(P);
         
-        
-        P = new Product("Mango Smoothie","Mango Smoothie terbuat dari Mangga",99);
-        P.setId(3);
-        P.setImageUrl("/image/Mango SMoothie.jpg");
-        P.setCategory(ObjCategory.getLast());
-        P.setPrice(50000);
-        ObjProduct.add(P);  */
     }
     
     public void get_TabelStorage(){
@@ -104,6 +95,26 @@ public class ScreenData {
         }
         return null;
     }
+    
+    public Transaction SearchCustomer(String Nama){
+        for(int i = 0;i<ObjTransaction.size();i++){
+            if(ObjTransaction.get(i).getCustomer().getNama().equals(Nama)){
+                return ObjTransaction.get(i);
+            }
+        }
+        return null;
+    }
+    
+    public void getTableTransaction(){
+        Transaction_Panel.setRowCount(0);
+            for (Transaction ObjTransaction1 : ObjTransaction) {
+            Transaction_Panel.addRow(new Object[] {null, null , ObjTransaction1.getCustomer().getNama(),ObjTransaction1.getCustomer().getPhoneNumber(),ObjTransaction1.SumHarga(),ObjTransaction1.getDate()});
+            }
+            
+        
+    }
+    
+    
     
     
     
