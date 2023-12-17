@@ -36,7 +36,7 @@ public class ProductService {
     public static ArrayList<Product> getAll() throws Exception {
         ArrayList<Product> products = new ArrayList<>();
 
-        try (ResultSet result = Database.executeQuery("SELECT * FROM products INNER JOIN category ON category.id = products.category_id")) {
+        try (ResultSet result = Database.executeQuery("SELECT * FROM products INNER JOIN category ON category.id = products.category_id ORDER BY products.id")) {
             for (;;) {
                 Product product = storeResultToProduct(result);
 
@@ -48,5 +48,31 @@ public class ProductService {
         }
 
         return products;
+    }
+
+    public static int create(Product product) throws Exception {
+        try {
+            int rows = Database.executeUpdate("INSERT INTO products VALUES (NULL, ?, ?, ?, ?, ?)",
+                    product.getName(),
+                    Integer.toString(product.getStock()),
+                    Integer.toString(product.getCategory().getId()),
+                    product.getDescription(),
+                    Double.toString(product.getPrice())
+            );
+            return rows;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public static int delete(Product product) throws Exception {
+        try {
+            int rows = Database.executeUpdate("DELETE FROM products WHERE id = ?",
+                Integer.toString(product.getId())
+            );
+            return rows;
+        } catch (Exception e) {
+            return -1;
+        }
     }
 }

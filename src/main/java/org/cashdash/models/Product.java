@@ -6,6 +6,15 @@ public class Product extends Item {
     private String imageUrl;
     private double price;
 
+    public Product(String name, Integer stock, String description, double price) {
+        super(name, stock);
+        this.description = description;
+        this.price = price;
+    }
+
+    /*
+     * for storing data from database
+     */
     public Product(int id, String name, String description, Integer stock, double price) {
         super(id, name, stock);
         this.description = description;

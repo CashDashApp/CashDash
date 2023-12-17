@@ -29,26 +29,26 @@ public class ScreenData {
     }
     
     public void get_Product(){
-        Product P = new Product(1,"Batagor","Batagor 15.000 terlalu kenyang",99,100000);
-        P.setId(0);
-        P.setImageUrl("/image/Batagor.jpg");
-        P.setCategory(ObjCategory.getFirst());
-        P.setPrice(100000);
-        ObjProduct.add(P);
-        
-        P = new Product(2, "Spaghetti","Italiano Cappucino",99,60000);
-        P.setId(1);
-        P.setImageUrl("/image/Spageti.jpg");
-        P.setCategory(ObjCategory.getFirst());
-        P.setPrice(60000);
-        ObjProduct.add(P);
-        
-        P = new Product(3, "Steak","Japanese Wagyu A5?",99, 70000);
-        P.setId(2);
-        P.setImageUrl("/image/Steak.jpg");
-        P.setCategory(ObjCategory.getFirst());
-        P.setPrice(70000);
-        ObjProduct.add(P);
+//        Product P = new Product(1,"Batagor","Batagor 15.000 terlalu kenyang",99,100000);
+//        P.setId(0);
+//        P.setImageUrl("/image/Batagor.jpg");
+//        P.setCategory(ObjCategory.getFirst());
+//        P.setPrice(100000);
+//        ObjProduct.add(P);
+//
+//        P = new Product(2, "Spaghetti","Italiano Cappucino",99,60000);
+//        P.setId(1);
+//        P.setImageUrl("/image/Spageti.jpg");
+//        P.setCategory(ObjCategory.getFirst());
+//        P.setPrice(60000);
+//        ObjProduct.add(P);
+//
+//        P = new Product(3, "Steak","Japanese Wagyu A5?",99, 70000);
+//        P.setId(2);
+//        P.setImageUrl("/image/Steak.jpg");
+//        P.setCategory(ObjCategory.getFirst());
+//        P.setPrice(70000);
+//        ObjProduct.add(P);
         
     }
     
