@@ -11,6 +11,7 @@ public class Authentication {
         if (ret == null)
             throw new Exception("User not found");
 
+        System.out.println("Checking password: " + user.getPassword() + " with " + ret.getPassword());
         boolean isValidPassword = Hash.verify(user.getPassword(), ret.getPassword());
 
         if (!isValidPassword)
@@ -22,6 +23,9 @@ public class Authentication {
     }
 
     public static void register(User user) throws Exception {
+        if (UserService.findByUsername(user.getUsername()) != null)
+            throw new Exception("Username has been registered");
+
         int updated = UserService.createUser(user.getFullname(), user.getUsername(), user.getPassword());
 
         if (updated == 0)

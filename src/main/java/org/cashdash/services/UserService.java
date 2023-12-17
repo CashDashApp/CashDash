@@ -17,13 +17,12 @@ public class UserService {
                 return null;
 
             User u = new User(
+                    result.getInt("id"),
                     result.getString("fullname"),
                     result.getString("username"),
                     result.getString("password"),
                     result.getBoolean("is_admin")
             );
-
-            u.setId(result.getInt("id"));
 
             return u;
         }
