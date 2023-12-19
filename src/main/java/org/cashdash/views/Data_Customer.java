@@ -5,11 +5,8 @@
 package org.cashdash.views;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import org.cashdash.models.Customer;
-import org.cashdash.models.Invoice;
 import org.cashdash.models.Order;
 import org.cashdash.models.Transaction;
 
@@ -128,8 +125,7 @@ public class Data_Customer extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-       // Invoice inv = new Invoice(null,this.Harga);
+
         Customer pembeli = new Customer(jTextField1.getText(), jTextField2.getText());
         
         

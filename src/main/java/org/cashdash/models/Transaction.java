@@ -9,7 +9,6 @@ public class Transaction {
     private String id;
     private User user;
     private Customer customer;
-    private Invoice invoice;
     private ArrayList<Order> orders;
     private LocalDate date;
     private boolean status;
@@ -19,7 +18,6 @@ public class Transaction {
 //        this.customer = customer;
 //        this.user = user;
 //        this.id = UUID.randomUUID().toString().replace("-", "");
-//        this.invoice = new Invoice();
 //        this.date = LocalDateTime.now();
 //        this.status = false;
 //        this.orders = new Order[];
@@ -40,14 +38,6 @@ public class Transaction {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
     }
 
     public ArrayList<Order> getOrders() {
