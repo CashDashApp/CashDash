@@ -8,11 +8,70 @@ import org.cashdash.services.CategoryService;
 import org.cashdash.services.ProductService;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Main {
+
+//    public static void main(String[] args) {
+//        Scanner inp = new Scanner(System.in);
+//
+//        // Session
+//        User user = null;
+//
+//        while (true) {
+//            try {
+//                System.out.println("== Cashdash ==");
+//                System.out.println("[1] Login");
+//                System.out.println("[2] Register user (kayanya ga kepake)");
+//                System.out.println("[3] Show all product");
+//                System.out.println("[4] Insert product");
+//                System.out.println("[5] Delete product");
+//                System.out.println("[6] Edit product");
+//
+//                System.out.print(">> ");
+//                int choice = inp.nextInt();
+//
+//                switch (choice) {
+//                    case 1:
+//                        System.out.print("Username: ");
+//                        String username = inp.next();
+//
+//                        System.out.print("Password: ");
+//                        String password = inp.next();
+//
+//                        User credential = new User(username, password);
+//                        Authentication.login(credential);
+//
+//                        // save to session
+//                        user = credential;
+//                        break;
+//
+//                    case 3:
+//                        for (Product p : ProductService.getAll()) {
+//                            System.out.println("Product ID  : " + p.getId());
+//                            System.out.println("Name        : " + p.getName());
+//                            System.out.println("Description : " + p.getDescription());
+//                            System.out.println("Price       : " + p.getPrice());
+//                            System.out.println("Category    : " + p.getCategory().getName());
+//                            System.out.println();
+//
+//                        }
+//
+//
+//
+//                }
+//
+//
+//            } catch (Exception e) {
+//                System.out.println("Error: " + e.getMessage());
+//            }
+//        }
+//    }
+
     public static void main(String[] args) {
         try {
+
             ArrayList<Category> categories = CategoryService.getAll();
 
             for (Category c : categories) {
@@ -35,17 +94,25 @@ public class Main {
 
             ArrayList<Product> products = ProductService.getAll();
 
-            for (Product p : products) {
-                System.out.println(p.getId() + " -> " + p.getName());
-                if (ProductService.delete(p) != -1) {
-                    System.out.println("Product berhasil dihapus");
-                } else {
-                    System.out.println("Product gagal dihapus");
-                }
+            Product pEdit = products.get(0);
+            pEdit.setStock(1337);
+
+            if (pEdit.save() != -1) {
+                System.out.println("Product berhasil diupdate");
+            } else {
+                System.out.println("Product gagal diupdate");
             }
 
-            System.out.println(ProductService.delete(products.get(0)));
-
+//            for (Product p : ProductService.getAll()) {
+//                System.out.println(p.getId() + " -> " + p.getName());
+//                if (ProductService.delete(p) != -1) {
+//                    System.out.println("Product berhasil dihapus");
+//                } else {
+//                    System.out.println("Product gagal dihapus");
+//                }
+//            }
+//
+//            System.out.println(ProductService.delete(products.get(0)));
 
 //            User uLogin = new User("Testing User 1", "testing1", "testing");
 //

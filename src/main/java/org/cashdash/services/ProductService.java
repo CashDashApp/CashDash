@@ -12,15 +12,15 @@ public class ProductService {
         Product product = null;
         if (result.next()) {
             product = new Product(
-                    result.getInt("id"),
-                    result.getString("name"),
-                    result.getString("description"),
-                    result.getInt("stock"),
-                    result.getDouble("price")
+                result.getInt("id"),
+                result.getString("name"),
+                result.getString("description"),
+                result.getInt("stock"),
+                result.getDouble("price")
             );
             Category category = new Category(
-                    result.getInt("category.id"),
-                    result.getString("category.name")
+                result.getInt("category.id"),
+                result.getString("category.name")
             );
             product.setCategory(category);
         }
@@ -51,28 +51,18 @@ public class ProductService {
     }
 
     public static int create(Product product) throws Exception {
-        try {
-            int rows = Database.executeUpdate("INSERT INTO products VALUES (NULL, ?, ?, ?, ?, ?)",
-                    product.getName(),
-                    Integer.toString(product.getStock()),
-                    Integer.toString(product.getCategory().getId()),
-                    product.getDescription(),
-                    Double.toString(product.getPrice())
-            );
-            return rows;
-        } catch (Exception e) {
-            return -1;
-        }
+        return Database.executeUpdate("INSERT INTO products VALUES (NULL, ?, ?, ?, ?, ?)",
+            product.getName(),
+            product.getStock(),
+            product.getCategory().getId(),
+            product.getDescription(),
+            product.getPrice()
+        );
     }
 
     public static int delete(Product product) throws Exception {
-        try {
-            int rows = Database.executeUpdate("DELETE FROM products WHERE id = ?",
-                Integer.toString(product.getId())
-            );
-            return rows;
-        } catch (Exception e) {
-            return -1;
-        }
+        return Database.executeUpdate("DELETE FROM products WHERE id = ?",
+            product.getId()
+        );
     }
 }

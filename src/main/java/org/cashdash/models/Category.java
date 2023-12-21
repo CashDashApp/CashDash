@@ -1,8 +1,14 @@
 package org.cashdash.models;
 
+import org.cashdash.database.Database;
+
 public class Category {
     private int id;
     private String name;
+
+    public Category(String name) {
+        this.name = name;
+    }
 
     public Category(int id, String name) {
         this.id = id;
@@ -23,5 +29,12 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int save() throws Exception {
+        return Database.executeUpdate("UPDATE category SET name = ? WHERE id = ?",
+            this.name,
+            this.id
+        );
     }
 }

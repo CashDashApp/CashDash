@@ -1,5 +1,7 @@
 package org.cashdash.models;
 
+import org.cashdash.database.Database;
+
 public class Product extends Item {
     private Category category;
     private String description;
@@ -57,5 +59,15 @@ public class Product extends Item {
         
     }
 
+    public int save() throws Exception {
+        return Database.executeUpdate("UPDATE products SET name = ?, stock = ?, category_id = ?, description = ?, price = ? WHERE id = ?",
+            super.getName(),
+            super.getStock(),
+            this.category.getId(),
+            this.description,
+            this.price,
+            super.getId()
+        );
+    }
     
 }

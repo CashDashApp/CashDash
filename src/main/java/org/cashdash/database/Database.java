@@ -39,14 +39,14 @@ public class Database {
             PreparedStatement statement = getConnection().prepareStatement(args[0].toString());
 
             for (int i = 1; i < args.length; i++) {
-                if (args[i] instanceof String)
-                    statement.setString(i, (String) args[i]);
-                else if (args[i] instanceof Integer)
+                if (args[i] instanceof Integer)
                     statement.setInt(i, (int) args[i]);
                 else if (args[i] instanceof Boolean)
                     statement.setBoolean(i, (boolean) args[i]);
                 else if (args[i] instanceof Double)
                     statement.setDouble(i, (double) args[i]);
+                else
+                    statement.setString(i, (String) args[i]);
             }
 
             return statement.executeUpdate();

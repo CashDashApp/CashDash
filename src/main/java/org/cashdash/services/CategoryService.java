@@ -21,4 +21,16 @@ public class CategoryService {
         }
         return categories;
     }
+
+    public static int create(Category category) {
+        return Database.executeUpdate("INSERT INTO category VALUES (NULL, ?)",
+            category.getName()
+        );
+    }
+
+    public static int delete(Category category) {
+        return Database.executeUpdate("DELETE FROM category WHERE id = ?",
+            category.getId()
+        );
+    }
 }
