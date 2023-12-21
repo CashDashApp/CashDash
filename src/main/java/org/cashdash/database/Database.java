@@ -34,12 +34,20 @@ public class Database {
         }
     }
 
-    public static int executeUpdate(String... args) {
+    public static int executeUpdate(Object... args) {
         try {
-            PreparedStatement statement = getConnection().prepareStatement(args[0]);
+            PreparedStatement statement = getConnection().prepareStatement(args[0].toString());
 
-            for (int i = 1; i < args.length; i++)
-                statement.setString(i, args[i]);
+            for (int i = 1; i < args.length; i++) {
+                if (args[i] instanceof String)
+                    statement.setString(i, (String) args[i]);
+                else if (args[i] instanceof Integer)
+                    statement.setInt(i, (int) args[i]);
+                else if (args[i] instanceof Boolean)
+                    statement.setBoolean(i, (boolean) args[i]);
+                else if (args[i] instanceof Double)
+                    statement.setDouble(i, (double) args[i]);
+            }
 
             return statement.executeUpdate();
 
