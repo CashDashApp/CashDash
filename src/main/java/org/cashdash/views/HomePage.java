@@ -14,7 +14,6 @@ public class HomePage extends javax.swing.JFrame {
     public HomePage() {
         Data.get_Category();
         Data.get_Product();
-        Data.get_TabelStorage();
         initComponents();
         
     }
@@ -31,7 +30,6 @@ public class HomePage extends javax.swing.JFrame {
 
         BackroundPanel = new javax.swing.JPanel();
         Navigation_Panel = new javax.swing.JPanel();
-        PrintBillbtn1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         Pemesananbtn1 = new javax.swing.JButton();
         Storagebtn1 = new javax.swing.JButton();
@@ -50,15 +48,6 @@ public class HomePage extends javax.swing.JFrame {
 
         Navigation_Panel.setBackground(new java.awt.Color(0, 153, 255));
         Navigation_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
-
-        PrintBillbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        PrintBillbtn1.setForeground(new java.awt.Color(0, 153, 255));
-        PrintBillbtn1.setText("Print Bill");
-        PrintBillbtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrintBillbtn1ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +98,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(Navigation_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Pemesananbtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LogOutbtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PrintBillbtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Storagebtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Navigation_PanelLayout.createSequentialGroup()
                         .addGap(0, 9, Short.MAX_VALUE)
@@ -125,9 +113,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110)
                 .addComponent(Pemesananbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(PrintBillbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addGap(118, 118, 118)
                 .addComponent(Pemesananbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Storagebtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,19 +227,10 @@ public class HomePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PrintBillbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintBillbtn1ActionPerformed
-        Show_Panel.removeAll();
-       
-        PrintBill_Panel Print = new PrintBill_Panel(); // Instantiate the HomePanel
-        Show_Panel.add(Print);
-        Show_Panel.repaint();
-        Show_Panel.revalidate();
-    }//GEN-LAST:event_PrintBillbtn1ActionPerformed
-
     private void Pemesananbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pemesananbtn1ActionPerformed
         Show_Panel.removeAll();
        
-        Pemesanan_Panel Pemesanan = new Pemesanan_Panel(); // Instantiate the HomePanel
+        NewPemesananUI Pemesanan = new NewPemesananUI(); // Instantiate the HomePanel
         Show_Panel.add(Pemesanan);
         Show_Panel.repaint();
         Show_Panel.revalidate();
@@ -330,7 +307,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton Pemesananbtn1;
     private javax.swing.JButton Pemesananbtn2;
     private javax.swing.JPanel PrintBill_Panel;
-    private javax.swing.JButton PrintBillbtn1;
     private javax.swing.JPanel Show_Panel;
     private javax.swing.JPanel Storage_Panel;
     private javax.swing.JButton Storagebtn1;

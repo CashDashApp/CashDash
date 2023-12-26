@@ -14,7 +14,15 @@ public class Storage_Panel extends javax.swing.JPanel {
      * Creates new form Storage_Panel
      */
     public Storage_Panel() {
+        
         initComponents();
+        initStorage();
+        
+        
+    }
+    void initStorage(){
+        Data.get_TabelStorage();
+        jTable1.setModel(Data.Storage_Panel);
     }
 
     /**
