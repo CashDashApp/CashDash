@@ -86,7 +86,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -197,11 +197,12 @@ public class NewPemesananUI extends javax.swing.JPanel {
         Prodak = Data.CariProductById(Integer.parseInt(jTextField1.getText()));
         if(Prodak != null){
             jDialog1.setVisible(true);
-            jDialog1.setSize(390, 260);
+            jDialog1.setSize(390, 265);
             
         }else{
             System.out.println("ID Tidak Ditemukan Silahkan Input Ulang");
         }
+        jTextField1.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -211,6 +212,8 @@ public class NewPemesananUI extends javax.swing.JPanel {
         Data.ArrOrder.add(ObjOrder);
         
         jDialog1.dispose();
+        
+        jTextField2.setText("");
         
         
     }//GEN-LAST:event_jButton3ActionPerformed

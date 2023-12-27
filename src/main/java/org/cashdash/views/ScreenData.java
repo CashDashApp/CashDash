@@ -5,11 +5,14 @@
 package org.cashdash.views;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import org.cashdash.models.Category;
 import org.cashdash.models.Order;
 import org.cashdash.models.Product;
 import org.cashdash.models.Transaction;
+import org.cashdash.services.ProductService;
 
 public class ScreenData {
     public static ArrayList<Category> ObjCategory = new ArrayList<Category>();
@@ -17,8 +20,7 @@ public class ScreenData {
     public static ArrayList<Product> ObjProduct = new ArrayList<Product>();
     public static ArrayList<Transaction> ObjTransaction = new ArrayList<Transaction>();
     public static DefaultTableModel Print_Bill = new DefaultTableModel(null,new String [] {"ID", "Nama", "Jenis", "Harga Satuan", "Jumlah Pesanan", "Total"});
-     
-    public static DefaultTableModel Storage_Panel = new DefaultTableModel(null,new String [] {"Barang", "Sisa Stock"});
+    public static DefaultTableModel Storage_Panel = new DefaultTableModel(null,new String [] {"ID", "Barang", "Sisa Stock"});
     public static DefaultTableModel Transaction_Panel = new DefaultTableModel(null, new String [] {"IDTransaksi", "Cashier", "Customer", "No Telp", "Harga", "Date"});
     
     
@@ -30,37 +32,52 @@ public class ScreenData {
     }
     
     public void get_Product(){
+//        if(ObjProduct.isEmpty()){
+//            Product P = new Product(1,"Batagor","Batagor 15.000 terlalu kenyang",99,100000);
+//            P.setId(0);
+//            P.setImageUrl("/image/Batagor.jpg");
+//            P.setCategory(ObjCategory.getFirst());
+//            P.setPrice(100000);
+//            ObjProduct.add(P);
+//
+//            P = new Product(2, "Spaghetti","Italiano Cappucino",99,60000);
+//            P.setId(1);
+//            P.setImageUrl("/image/Spageti.jpg");
+//            P.setCategory(ObjCategory.getFirst());
+//            P.setPrice(60000);
+//            ObjProduct.add(P);
+//
+//            P = new Product(3, "Steak","Japanese Wagyu A5?",99, 70000);
+//            P.setId(2);
+//            P.setImageUrl("/image/Steak.jpg");
+//            P.setCategory(ObjCategory.getFirst());
+//            P.setPrice(70000);
+//            ObjProduct.add(P);
+//        }
         if(ObjProduct.isEmpty()){
-            Product P = new Product(1,"Batagor","Batagor 15.000 terlalu kenyang",99,100000);
-            P.setId(0);
-            P.setImageUrl("/image/Batagor.jpg");
-            P.setCategory(ObjCategory.getFirst());
-            P.setPrice(100000);
-            ObjProduct.add(P);
-
-            P = new Product(2, "Spaghetti","Italiano Cappucino",99,60000);
-            P.setId(1);
-            P.setImageUrl("/image/Spageti.jpg");
-            P.setCategory(ObjCategory.getFirst());
-            P.setPrice(60000);
-            ObjProduct.add(P);
-
-            P = new Product(3, "Steak","Japanese Wagyu A5?",99, 70000);
-            P.setId(2);
-            P.setImageUrl("/image/Steak.jpg");
-            P.setCategory(ObjCategory.getFirst());
-            P.setPrice(70000);
-            ObjProduct.add(P);
+            try {
+                for(Product P : ProductService.getAll()){
+                    ObjProduct.add(P);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(ScreenData.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    private void clearRow(){
+        int rowCount = Storage_Panel.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            Storage_Panel.removeRow(i);
         }
     }
     
     public void get_TabelStorage(){
-        Storage_Panel = new DefaultTableModel(null,new String [] {"Barang", "Sisa Stock"});
+        clearRow();
         for (Product ObjProduct1 : ObjProduct) {
             System.out.println(ObjProduct.get(1).getName());
-            Storage_Panel.addRow(new Object[] {ObjProduct1.getName(), ObjProduct1.getStock()});
+            Storage_Panel.addRow(new Object[] {ObjProduct1.getId(), ObjProduct1.getName(), ObjProduct1.getStock()});
         }
-        
     }
     
     public Product CariProductById(int Nama){
