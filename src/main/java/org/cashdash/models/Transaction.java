@@ -1,8 +1,13 @@
 package org.cashdash.models;
 
+import org.cashdash.services.OrderService;
+import org.cashdash.services.TransactionService;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.UUID;
 //import java.util.UUID;
 
 public class Transaction {
@@ -10,19 +15,54 @@ public class Transaction {
     private User user;
     private Customer customer;
     private ArrayList<Order> orders;
-    private LocalDate date;
+    private Date date;
     private boolean status;
 
+    public Transaction(User user, Customer customer){
+        this.id = UUID.randomUUID().toString();
+        this.customer = customer;
+        this.user = user;
+        this.date = new Date();
+        this.status = false;
+        this.orders = new ArrayList<Order>();
+    }
 
-//    Transaction(User user ,Customer customer){
-//        this.customer = customer;
-//        this.user = user;
-//        this.id = UUID.randomUUID().toString().replace("-", "");
-//        this.date = LocalDateTime.now();
-//        this.status = false;
-//        this.orders = new Order[];
-//    }
+    public void addOrder(Product product, int count) {
+        boolean productIsExistInOrders = false;
 
+        for (Order order : this.orders) {
+            if (order.getProduct().getId() == product.getId()) {
+                order.addCount(count);
+                productIsExistInOrders = true;
+                break;
+            }
+        }
+
+        if (!productIsExistInOrders) {
+            Order newOrder = new Order(product, count);
+            this.orders.add(newOrder);
+        }
+
+    }
+
+    public void save() throws Exception {
+        System.out.println("Saving transaction #" + this.id);
+
+        int transactionCreated = TransactionService.create(this.id, this.user, this.customer);
+        if (transactionCreated <= 0)
+            throw new Exception("Couldn't create transaction");
+
+        // SUCK IMPLEMENTATIONS INSERT
+        for (Order order : this.orders) {
+            System.out.println("Saving order -> " + order.getProduct().getId());
+            OrderService.create(this.id, order);
+        }
+
+    }
+
+    public void deleteOrder(int index) {
+        this.orders.remove(index);
+    }
 
     public User getUser() {
         return user;
@@ -48,11 +88,11 @@ public class Transaction {
         this.orders = orders;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -64,13 +104,22 @@ public class Transaction {
         this.status = status;
     }
     
-    public double SumHarga(){
-        double hasil = 0;
-        for(int i = 0; i < orders.size();i++){
-            
-            hasil = hasil + orders.get(i).getProduct().getPrice() * orders.get(i).getCount();
-            System.out.println(hasil);
+    public double getTotal(){
+        double total = 0;
+
+        for (Order order : this.orders)
+            total += order.getProduct().getPrice() * order.getCount();
+
+        return total;
+    }
+
+    public void printDetailOrders() {
+        System.out.println("== List Orders ==");
+        for (Order order : this.orders) {
+            Product product = order.getProduct();
+            double total = product.getPrice() * order.getCount();
+
+            System.out.println(" - " + product.getName() + " (" +  order.getCount() + ") -> Rp " + total );
         }
-        return hasil;
     }
 }

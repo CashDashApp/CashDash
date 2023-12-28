@@ -207,7 +207,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Data.Print_Bill.addRow(new Object[]{Prodak.getId(), Prodak.getName(), Prodak.getCategory().getName(), Prodak.getPrice(), jTextField2.getText(), Integer.parseInt(jTextField2.getText()) * Prodak.getPrice()});
-        Order ObjOrder = new Order(Integer.parseInt(jTextField2.getText()), Prodak);
+        Order ObjOrder = new Order(Prodak, Integer.parseInt(jTextField2.getText()));
         Data.ArrOrder.add(ObjOrder);
         
         jDialog1.dispose();

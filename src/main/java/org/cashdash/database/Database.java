@@ -45,9 +45,13 @@ public class Database {
                     statement.setBoolean(i, (boolean) args[i]);
                 else if (args[i] instanceof Double)
                     statement.setDouble(i, (double) args[i]);
+                else if (args[i] instanceof Date)
+                    statement.setDate(i, (Date) args[i]);
                 else
                     statement.setString(i, (String) args[i]);
             }
+
+             //  System.out.println("UPDATE QUERY: " + statement.toString());
 
             return statement.executeUpdate();
 

@@ -4,7 +4,7 @@ public class Order {
     private int count;
     private Product product;
 
-    public Order(int count, Product product) {
+    public Order(Product product, int count) {
         this.count = count;
         this.product = product;
     }
@@ -15,6 +15,10 @@ public class Order {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public void addCount(int count) {
+        this.count += count;
     }
 
     public Product getProduct() {

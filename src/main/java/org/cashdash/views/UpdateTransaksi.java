@@ -108,7 +108,7 @@ public class UpdateTransaksi extends javax.swing.JDialog {
             //Data.Transaction_Panel.setValueAt(result,i, 4);
             Transaction Transaksi = Data.SearchCustomer(jList2.getSelectedValue());
             ArrayList<Order> arr = Transaksi.getOrders();
-            Transaksi.SumHarga();
+            Transaksi.getTotal();
             arr.addAll(Data.ArrOrder);
             Transaksi.setOrders(arr);
             System.out.println(Transaksi.getOrders().get(0).getProduct());
