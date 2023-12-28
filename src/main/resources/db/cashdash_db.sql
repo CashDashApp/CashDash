@@ -1,5 +1,22 @@
 SET FOREIGN_KEY_CHECKS=0;
 
+--Table customers
+DROP TABLE IF EXISTS customers;
+CREATE TABLE customers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    phone VARCHAR(50),
+);
+
+--Table orders
+DROP TABLE IF EXISTS orders;
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    count TINYINT NOT NULL,
+    FOREIGN KEY(product_id) REFERENCES product(id),
+);
+
 -- Table: users --
 DROP TABLE IF EXISTS users;
 
@@ -28,12 +45,34 @@ CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     stock INT DEFAULT 0,
-
     category_id INT NOT NULL,
     description VARCHAR(256),
---    image_url VARCHAR(256),
     price DOUBLE DEFAULT 0.0,
     FOREIGN KEY(category_id) REFERENCES category(id)
+);
+
+-- Table equipments
+DROP TABLE IF EXISTS equipments;
+CREATE TABLE equipments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    stock INT DEFAULT 0,
+    description VARCHAR(256),
+    price DOUBLE DEFAULT 0.0
+);
+
+-- Table: transactions
+DROP TABLE IF EXISTS transactions;
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    order_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(order_id) REFERENCES orders(id),
+    FOREIGN KEY(customer_id) REFERENCES customers(id),
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status boolean DEFAULT 0
 );
 
 INSERT INTO users VALUES (NULL, "Testing User 1", "testing1", "$2y$10$s8/nry7bNBVCPz55ZGOAmeF.DvNetXflWFOUiA7W/FvWpdw/Bic6.", 0);
