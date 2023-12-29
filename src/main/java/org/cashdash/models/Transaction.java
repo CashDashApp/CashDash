@@ -13,14 +13,15 @@ import java.util.UUID;
 public class Transaction {
     private String id;
     private User user;
-    private Customer customer;
+//    private Customer customer;
     private ArrayList<Order> orders;
     private Date date;
     private boolean status;
 
-    public Transaction(User user, Customer customer){
+//    public Transaction(User user, Customer customer){
+    public Transaction(User user){
         this.id = UUID.randomUUID().toString();
-        this.customer = customer;
+//        this.customer = customer;
         this.user = user;
         this.date = new Date();
         this.status = false;
@@ -46,18 +47,15 @@ public class Transaction {
     }
 
     public void save() throws Exception {
-        System.out.println("Saving transaction #" + this.id);
-
-        int transactionCreated = TransactionService.create(this.id, this.user, this.customer);
+        int transactionCreated = TransactionService.create(this.id, this.user);
         if (transactionCreated <= 0)
             throw new Exception("Couldn't create transaction");
 
         // SUCK IMPLEMENTATIONS INSERT
         for (Order order : this.orders) {
-            System.out.println("Saving order -> " + order.getProduct().getId());
             OrderService.create(this.id, order);
+            
         }
-
     }
 
     public void deleteOrder(int index) {
@@ -72,13 +70,13 @@ public class Transaction {
         this.user = user;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
     public ArrayList<Order> getOrders() {
         return orders;

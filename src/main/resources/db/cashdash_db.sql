@@ -1,20 +1,19 @@
 SET FOREIGN_KEY_CHECKS=0;
 
---Table customers
 DROP TABLE IF EXISTS customers;
+
 CREATE TABLE customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    phone VARCHAR(50),
+    phone VARCHAR(50)
 );
 
---Table orders
 DROP TABLE IF EXISTS orders;
 CREATE TABLE orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
     count TINYINT NOT NULL,
-    FOREIGN KEY(product_id) REFERENCES product(id),
+    FOREIGN KEY(product_id) REFERENCES product(id)
 );
 
 -- Table: users --
@@ -56,10 +55,8 @@ DROP TABLE IF EXISTS transactions;
 CREATE TABLE transactions (
     id VARCHAR(50) PRIMARY KEY,
     user_id INT,
-    customer_id INT,
+--     customer_id INT,
     transaction_date DATE,
-    -- total DOUBLE,
-    FOREIGN KEY(customer_id) REFERENCES users(id),
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 

@@ -9,11 +9,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TransactionService {
-    public static int create(String id, User user, Customer customer) throws Exception {
-        return Database.executeUpdate("INSERT INTO transactions VALUES (?, ?, ?, ?)",
+//    public static int create(String id, User user, Customer customer) throws Exception {
+    public static int create(String id, User user) throws Exception {
+        return Database.executeUpdate("INSERT INTO transactions VALUES (?, ?, ?)",
             id,
             user.getId(),
-            user.getId(), // TODO: fix this (confused: customer doesn't refer to user)
             Date.valueOf(LocalDate.now())
         );
     }

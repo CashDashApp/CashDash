@@ -59,6 +59,17 @@ public class ProductService {
             product.getPrice()
         );
     }
+    
+    public static int update(Product product) throws Exception {
+        return Database.executeUpdate("UPDATE products SET name = ?, stock = ?, category_id = ?, description = ?, price = ? WHERE id = ?",
+            product.getName(),
+            product.getStock(),
+            product.getCategory().getId(),
+            product.getDescription(),
+            product.getPrice(),
+            product.getId()
+        );
+    }
 
     public static int delete(Product product) throws Exception {
         return Database.executeUpdate("DELETE FROM products WHERE id = ?",

@@ -20,23 +20,10 @@ public class Database {
 
         return connection;
     }
-
-    public static ResultSet executeQuery(String... args) {
+    
+    private static PreparedStatement craftStatement(Object... args) {
         try {
-            PreparedStatement statement = getConnection().prepareStatement(args[0]);
-
-            for (int i = 1; i < args.length; i++)
-                statement.setString(i, args[i]);
-
-            return statement.executeQuery();
-        } catch (Exception exception) {
-            return null;
-        }
-    }
-
-    public static int executeUpdate(Object... args) {
-        try {
-            PreparedStatement statement = getConnection().prepareStatement(args[0].toString());
+            PreparedStatement statement = getConnection().prepareStatement(args[0].toString(), new String[] { "id" } );
 
             for (int i = 1; i < args.length; i++) {
                 if (args[i] instanceof Integer)
@@ -50,9 +37,28 @@ public class Database {
                 else
                     statement.setString(i, (String) args[i]);
             }
+            return statement;
+            
+        } catch (Exception e) {
+            
+            return null;
+        }    
+    }
 
-             //  System.out.println("UPDATE QUERY: " + statement.toString());
+    public static ResultSet executeQuery(Object... args) {
+        try {
+            PreparedStatement statement = craftStatement(args);
+            
+            return statement.executeQuery();
+        } catch (Exception exception) {
+            return null;
+        }
+    }
 
+    public static int executeUpdate(Object... args) {
+        try {
+            PreparedStatement statement = craftStatement(args);
+ 
             return statement.executeUpdate();
 
         } catch (Exception exception) {
