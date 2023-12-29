@@ -14,6 +14,13 @@ public class Product extends Item {
         this.price = price;
     }
 
+    public Product(String name, Integer stock, String description, double price, Category category) {
+        super(name, stock);
+        this.description = description;
+        this.price = price;
+        this.category = category;
+    }
+
     /*
      * for storing data from database
      */

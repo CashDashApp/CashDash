@@ -130,20 +130,20 @@ public class Data_Customer extends javax.swing.JDialog {
         
         
         
-        Transaction trs = new Transaction();
-        ArrayList<Order> ArrOrderNew = new ArrayList<Order>();
-        ArrOrderNew.addAll(Data.ArrOrder);
-        
-        trs.setOrders(ArrOrderNew);
-        trs.setDate(LocalDate.now());
-        //trs.setInvoice(inv);
-        trs.setCustomer(pembeli);
-        Data.ObjTransaction.add(trs);
+//        Transaction trs = new Transaction();
+//        ArrayList<Order> ArrOrderNew = new ArrayList<Order>();
+//        ArrOrderNew.addAll(Data.ArrOrder);
+//
+//        trs.setOrders(ArrOrderNew);
+//        trs.setDate(LocalDate.now());
+//        //trs.setInvoice(inv);
+//        trs.setCustomer(pembeli);
+//        Data.ObjTransaction.add(trs);
         //System.out.println("Total : " +Data.ObjTransaction.get(0).SumHarga());
         //Data.add_Transaction("", "Admin", trs.getCustomer().getNama(), trs.getCustomer().getPhoneNumber(), (int) trs.getInvoice().getAmount(), trs.getDate().toString());
-        Data.ReduceStock(ArrOrderNew);
-        Data.ResetOrder();
-        dispose();
+//        Data.ReduceStock(ArrOrderNew);
+//        Data.ResetOrder();
+//        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

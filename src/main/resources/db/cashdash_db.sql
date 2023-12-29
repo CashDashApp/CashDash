@@ -51,6 +51,30 @@ CREATE TABLE products (
     FOREIGN KEY(category_id) REFERENCES category(id)
 );
 
+DROP TABLE IF EXISTS transactions;
+
+CREATE TABLE transactions (
+    id VARCHAR(50) PRIMARY KEY,
+    user_id INT,
+    customer_id INT,
+    transaction_date DATE,
+    -- total DOUBLE,
+    FOREIGN KEY(customer_id) REFERENCES users(id),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+DROP TABLE IF EXISTS orders;
+
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_id VARCHAR(50),
+    product_id INT,
+    product_total INT,
+    FOREIGN KEY(transaction_id) REFERENCES transactions(id),
+    FOREIGN KEY(product_id) REFERENCES products(id)
+);
+
+
 -- Table equipments
 DROP TABLE IF EXISTS equipments;
 CREATE TABLE equipments (
@@ -62,18 +86,18 @@ CREATE TABLE equipments (
 );
 
 -- Table: transactions
-DROP TABLE IF EXISTS transactions;
-CREATE TABLE transactions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    order_id INT NOT NULL,
-    customer_id INT NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(order_id) REFERENCES orders(id),
-    FOREIGN KEY(customer_id) REFERENCES customers(id),
-    date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status boolean DEFAULT 0
-);
+-- DROP TABLE IF EXISTS transactions;
+-- CREATE TABLE transactions (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT NOT NULL,
+--     order_id INT NOT NULL,
+--     customer_id INT NOT NULL,
+--     FOREIGN KEY(user_id) REFERENCES users(id),
+--     FOREIGN KEY(order_id) REFERENCES orders(id),
+--     FOREIGN KEY(customer_id) REFERENCES customers(id),
+--     date DATETIME DEFAULT CURRENT_TIMESTAMP,
+--     status boolean DEFAULT 0
+-- );
 
 INSERT INTO users VALUES (NULL, "Testing User 1", "testing1", "$2y$10$s8/nry7bNBVCPz55ZGOAmeF.DvNetXflWFOUiA7W/FvWpdw/Bic6.", 0);
 INSERT INTO users VALUES (NULL, "Testing User 2", "testing2", "$2y$10$s8/nry7bNBVCPz55ZGOAmeF.DvNetXflWFOUiA7W/FvWpdw/Bic6.", 0);
@@ -83,8 +107,8 @@ INSERT INTO category VALUES (NULL, "Barang");
 INSERT INTO category VALUES (NULL, "Makanan");
 INSERT INTO category VALUES (NULL, "Minuman");
 
-INSERT INTO products VALUES (NULL, "Meja", 4, (SELECT id FROM category WHERE name = "Barang"), "Meja kayu jati", 500000.0);
-INSERT INTO products VALUES (NULL, "Kursi", 5, (SELECT id FROM category WHERE name = "Barang"), "Kursi kayu jati", 400000.0);
-INSERT INTO products VALUES (NULL, "Milo", 4, (SELECT id FROM category WHERE name = "Minuman"), "Milo coklat", 10000.0);
-INSERT INTO products VALUES (NULL, "Susu", 4, (SELECT id FROM category WHERE name = "Minuman"), "Susu coklat", 12000.0);
-INSERT INTO products VALUES (NULL, "Tango", 4, (SELECT id FROM category WHERE name = "Makanan"), "Wafer", 12000.0);
+INSERT INTO products VALUES (NULL, "Laptop Lenovo", 12, (SELECT id FROM category WHERE name = "Barang"), "Laptop 14' dengan prosesor Intel", 650000.0);
+INSERT INTO products VALUES (NULL, "Smartphone Samsung", 9, (SELECT id FROM category WHERE name = "Barang"), "Smartphone Android layar 6 inci", 400000.0);
+INSERT INTO products VALUES (NULL, "Meja Kantor", 17, (SELECT id FROM category WHERE name = "Barang"), "Meja kayu warna cokelat", 150000.0);
+INSERT INTO products VALUES (NULL, "Printer Canon", 20, (SELECT id FROM category WHERE name = "Barang"), "Printer inkjet warna dengan scanner", 200000.0);
+INSERT INTO products VALUES (NULL, "Kursi Kantor", 15, (SELECT id FROM category WHERE name = "Barang"), "Kursi putih dengan sandaran", 80000.0);
