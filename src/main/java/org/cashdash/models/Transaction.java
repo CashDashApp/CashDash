@@ -13,13 +13,11 @@ public class Transaction {
     private User user;
     private ArrayList<Order> orders;
     private Date date;
-    private boolean status;
 
     public Transaction(User user){
         this.id = UUID.randomUUID().toString();
         this.user = user;
         this.date = new Date();
-        this.status = false;
         this.orders = new ArrayList<Order>();
     }
     public void addOrder(Product product, int count) {
@@ -86,14 +84,6 @@ public class Transaction {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
     
     public double getTotal(){
