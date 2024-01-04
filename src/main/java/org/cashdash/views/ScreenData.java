@@ -21,7 +21,7 @@ public class ScreenData {
     public static ArrayList<Transaction> ObjTransaction = new ArrayList<Transaction>();
     public static DefaultTableModel Print_Bill = new DefaultTableModel(null,new String [] {"ID", "Nama", "Jenis", "Harga Satuan", "Jumlah Pesanan", "Total"});
     public static DefaultTableModel Storage_Panel = new DefaultTableModel(null,new String [] {"ID", "Barang", "Sisa Stock"});
-    public static DefaultTableModel Transaction_Panel = new DefaultTableModel(null, new String [] {"IDTransaksi", "Cashier", "Customer", "No Telp", "Harga", "Date"});
+    public static DefaultTableModel Transaction_Panel = new DefaultTableModel(null, new String [] {"IDTransaksi", "Cashier", "Harga", "Date"});
     
     
     public void get_Category(){
@@ -71,10 +71,10 @@ public class ScreenData {
         Print_Bill.addRow(new Object[] {LabelProduk, LabelHarga, JumlahPesanan, Total});
     }
     
-    public void add_Transaction(String IDTransaksi, String Cashier, String Customer, String No_Telp, int Harga, String Date){
+    public void add_Transaction(String IDTransaksi, String Cashier, int Harga, String Date){
         //if(Transaction_Panel.getRowCount() == 0){
             //for(Transaction trs: ObjTransaction){
-                Transaction_Panel.addRow(new Object[] {IDTransaksi, Cashier, Customer, No_Telp, Harga,  Date});
+                Transaction_Panel.addRow(new Object[] {IDTransaksi, Cashier, Harga,  Date});
             //}
         }
     //}
@@ -93,19 +93,11 @@ public class ScreenData {
         return null;
     }
     
-    public Transaction SearchCustomer(String Nama){
-        for(int i = 0;i<ObjTransaction.size();i++){
-            if(ObjTransaction.get(i).getCustomer().getNama().equals(Nama)){
-                return ObjTransaction.get(i);
-            }
-        }
-        return null;
-    }
     
     public void getTableTransaction(){
         Transaction_Panel.setRowCount(0);
             for (Transaction ObjTransaction1 : ObjTransaction) {
-            Transaction_Panel.addRow(new Object[] {null, null , ObjTransaction1.getCustomer().getNama(),ObjTransaction1.getCustomer().getPhoneNumber(),ObjTransaction1.getTotal(),ObjTransaction1.getDate()});
+            Transaction_Panel.addRow(new Object[] {null, null,ObjTransaction1.getTotal(),ObjTransaction1.getDate()});
             } 
     }
     
@@ -119,13 +111,5 @@ public class ScreenData {
         }
         System.out.println(ObjProduct.size());
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

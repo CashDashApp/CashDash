@@ -4,6 +4,8 @@
  */
 package org.cashdash.views;
 
+import org.cashdash.models.User;
+
 /**
  *
  * @author HP

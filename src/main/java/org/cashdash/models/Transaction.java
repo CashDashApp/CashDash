@@ -3,8 +3,6 @@ package org.cashdash.models;
 import org.cashdash.services.OrderService;
 import org.cashdash.services.TransactionService;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -13,21 +11,17 @@ import java.util.UUID;
 public class Transaction {
     private String id;
     private User user;
-//    private Customer customer;
     private ArrayList<Order> orders;
     private Date date;
     private boolean status;
 
-//    public Transaction(User user, Customer customer){
     public Transaction(User user){
         this.id = UUID.randomUUID().toString();
-//        this.customer = customer;
         this.user = user;
         this.date = new Date();
         this.status = false;
         this.orders = new ArrayList<Order>();
     }
-
     public void addOrder(Product product, int count) {
         boolean productIsExistInOrders = false;
 

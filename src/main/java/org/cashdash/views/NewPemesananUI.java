@@ -5,8 +5,11 @@
 package org.cashdash.views;
 
 import java.util.ArrayList;
+import java.util.Date;
 import org.cashdash.models.Order;
 import org.cashdash.models.Product;
+import org.cashdash.models.Transaction;
+import org.cashdash.models.User;
 
 /**
  *
@@ -15,11 +18,12 @@ import org.cashdash.models.Product;
 public class NewPemesananUI extends javax.swing.JPanel {
     ScreenData Data = new ScreenData(); 
     Product Prodak;
+    User user;
 
     /**
      * Creates new form NewPemesananUI
      */
-    public NewPemesananUI() {
+    public NewPemesananUI(User user) {
         initComponents();
     }
 
@@ -226,9 +230,16 @@ public class NewPemesananUI extends javax.swing.JPanel {
         if(Data.ArrOrder.isEmpty()){
             System.out.println("Isi Order tidak boleh kosong");
         }else{
-            HomePage hp = new HomePage();
-            Data_Customer dialog = new Data_Customer(hp,true);
-            dialog.setVisible(true);
+//            Data_Customer dialog = new Data_Customer(hp,true);
+//            dialog.setVisible(true);
+        Transaction trs = new Transaction(user);
+    
+        trs.setOrders(Data.ArrOrder);
+        
+        Data.ObjTransaction.add(trs); // tambahin ke db
+        
+        Data.ReduceStock(Data.ArrOrder);
+        Data.ResetOrder();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

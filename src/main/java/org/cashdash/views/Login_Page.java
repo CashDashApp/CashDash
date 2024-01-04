@@ -4,6 +4,11 @@
  */
 package org.cashdash.views;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.cashdash.controllers.Authentication;
+import org.cashdash.models.User;
+
 /**
  *
  * @author macbookair
@@ -61,6 +66,11 @@ public class Login_Page extends javax.swing.JFrame {
         jPasswordField1.setText("jPasswordField1");
 
         jToggleButton1.setText("LOG IN");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -75,12 +85,13 @@ public class Login_Page extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addComponent(jTextField1)
+                            .addComponent(jPasswordField1)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jPasswordField1))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(87, 87, 87))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
@@ -194,6 +205,20 @@ public class Login_Page extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        try {
+            String uname,pw;
+            uname = jTextField1.getText();
+            pw = new String(jPasswordField1.getPassword());
+            User user = new User(uname, pw);
+            Authentication.login(user);
+            HomePage h = new HomePage(user);
+            h.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments

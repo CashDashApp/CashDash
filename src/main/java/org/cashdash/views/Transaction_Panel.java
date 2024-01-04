@@ -4,13 +4,14 @@
  */
 package org.cashdash.views;
 
+import org.cashdash.models.User;
+
 /**
  *
  * @author HP
  */
 public class Transaction_Panel extends javax.swing.JPanel {
     ScreenData Data = new ScreenData();
-
     /**
      * Creates new form Transaction_Panel
      */
