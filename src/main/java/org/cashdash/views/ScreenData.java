@@ -5,6 +5,7 @@
 package org.cashdash.views;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -71,10 +72,14 @@ public class ScreenData {
         Print_Bill.addRow(new Object[] {LabelProduk, LabelHarga, JumlahPesanan, Total});
     }
     
-    public void add_Transaction(String IDTransaksi, String Cashier, int Harga, String Date){
+    public void add_Transaction(Transaction trs){
+        String IDTransaksi = trs.getId();
+        String Cashier = trs.getUser().getFullname();
+        double Harga = trs.getTotal();
+        Date date = trs.getDate();
         //if(Transaction_Panel.getRowCount() == 0){
             //for(Transaction trs: ObjTransaction){
-                Transaction_Panel.addRow(new Object[] {IDTransaksi, Cashier, Harga,  Date});
+                Transaction_Panel.addRow(new Object[] {IDTransaksi, Cashier, Harga,  date});
             //}
         }
     //}

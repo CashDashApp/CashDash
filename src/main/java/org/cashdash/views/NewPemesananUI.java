@@ -233,8 +233,9 @@ public class NewPemesananUI extends javax.swing.JPanel {
 //            Data_Customer dialog = new Data_Customer(hp,true);
 //            dialog.setVisible(true);
         Transaction trs = new Transaction(user);
-    
+        
         trs.setOrders(Data.ArrOrder);
+        Data.add_Transaction(trs);
         
         Data.ObjTransaction.add(trs); // tambahin ke db
         
