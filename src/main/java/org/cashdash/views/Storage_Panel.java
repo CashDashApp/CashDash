@@ -4,8 +4,6 @@
  */
 package org.cashdash.views;
 
-import org.cashdash.models.User;
-
 /**
  *
  * @author HP
@@ -15,16 +13,16 @@ public class Storage_Panel extends javax.swing.JPanel {
     /**
      * Creates new form Storage_Panel
      */
-    public Storage_Panel() {
+    public Storage_Panel() throws Exception {
         
         initComponents();
         initStorage();
         
         
     }
-    void initStorage(){
+    void initStorage() throws Exception{
         Data.get_TabelStorage();
-        jTable1.setModel(Data.Storage_Panel);
+        jTable1.setModel(ScreenData.Storage_Panel);
     }
 
     /**

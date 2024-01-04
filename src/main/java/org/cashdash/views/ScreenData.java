@@ -52,21 +52,12 @@ public class ScreenData {
         }
     }
     
-    public void get_TabelStorage(){
+    public void get_TabelStorage() throws Exception{
         clearRow();
-        for (Product ObjProduct1 : ObjProduct) {
+        for (Product ObjProduct1 : ProductService.getAll()) {
             System.out.println(ObjProduct.get(1).getName());
             Storage_Panel.addRow(new Object[] {ObjProduct1.getId(), ObjProduct1.getName(), ObjProduct1.getStock()});
         }
-    }
-    
-    public Product CariProductById(int Nama){
-        for(int i = 0; i < ObjProduct.size(); i++){
-            if(Nama == ObjProduct.get(i).getId()){
-                return ObjProduct.get(i);
-            }
-        }
-        return null;
     }
     
     public void add_PrintBill(String LabelProduk, String LabelHarga, int JumlahPesanan,int Total){
@@ -85,7 +76,7 @@ public class ScreenData {
         }
     //}
     
-    public void ResetOrder(){
+    public static void ResetOrder(){
         ArrOrder.clear();
         Print_Bill.setRowCount(0);
     }
@@ -100,16 +91,16 @@ public class ScreenData {
     }
     
     
-    public void getTableTransaction() throws Exception{
+    public static void getTableTransaction() throws Exception{
         Transaction_Panel.setRowCount(0);
             for (Transaction ObjTransaction1 : TransactionService.getAll()) {
             Transaction_Panel.addRow(new Object[] {ObjTransaction1.getId(), ObjTransaction1.getUser().getFullname(),ObjTransaction1.getTotal(),ObjTransaction1.getDate()});
             } 
     }
     
-    public void ReduceStock(ArrayList<Order> JumlahPesanan){
+    public static void ReduceStock(ArrayList<Order> JumlahPesanan) throws Exception{
         for(int i = 0; i < JumlahPesanan.size();i++){
-            Product Prodak = CariProductById(JumlahPesanan.get(i).getProduct().getId());
+            Product Prodak = ProductService.findById(JumlahPesanan.get(i).getProduct().getId());
             if(Prodak != null){
                 Prodak.setStock(Prodak.getStock() - JumlahPesanan.get(i).getCount());
                 System.out.println(Prodak.getStock());

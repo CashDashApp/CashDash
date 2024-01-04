@@ -4,26 +4,25 @@
  */
 package org.cashdash.views;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cashdash.models.Order;
 import org.cashdash.models.Product;
 import org.cashdash.models.Transaction;
 import org.cashdash.models.User;
+import org.cashdash.services.ProductService;
 
 /**
  *
  * @author HP
  */
 public class NewPemesananUI extends javax.swing.JPanel {
-    ScreenData Data = new ScreenData(); 
     Product Prodak;
     User user;
 
     /**
      * Creates new form NewPemesananUI
+     * @param user
      */
     public NewPemesananUI(User user) {
         this.user = user;
@@ -202,22 +201,26 @@ public class NewPemesananUI extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        Prodak = Data.CariProductById(Integer.parseInt(jTextField1.getText()));
-        if(Prodak != null){
-            jDialog1.setVisible(true);
-            jDialog1.setSize(390, 265);
-            
-        }else{
-            System.out.println("ID Tidak Ditemukan Silahkan Input Ulang");
+        try {
+            Prodak = ProductService.findById(Integer.parseInt(jTextField1.getText()));
+            if(Prodak != null){
+                jDialog1.setVisible(true);
+                jDialog1.setSize(390, 265);
+                
+            }else{
+                System.out.println("ID Tidak Ditemukan Silahkan Input Ulang");
+            }
+            jTextField1.setText("");
+        } catch (Exception ex) {
+            Logger.getLogger(NewPemesananUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jTextField1.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Data.Print_Bill.addRow(new Object[]{Prodak.getId(), Prodak.getName(), Prodak.getCategory().getName(), Prodak.getPrice(), jTextField2.getText(), Integer.parseInt(jTextField2.getText()) * Prodak.getPrice()});
+        ScreenData.Print_Bill.addRow(new Object[]{Prodak.getId(), Prodak.getName(), Prodak.getCategory().getName(), Prodak.getPrice(), jTextField2.getText(), Integer.parseInt(jTextField2.getText()) * Prodak.getPrice()});
         Order ObjOrder = new Order(Prodak, Integer.parseInt(jTextField2.getText()));
-        Data.ArrOrder.add(ObjOrder);
+        ScreenData.ArrOrder.add(ObjOrder);
         
         jDialog1.dispose();
         
@@ -231,26 +234,21 @@ public class NewPemesananUI extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(Data.ArrOrder.isEmpty()){
+        if(ScreenData.ArrOrder.isEmpty()){
             System.out.println("Isi Order tidak boleh kosong");
         }else{
-//            Data_Customer dialog = new Data_Customer(hp,true);
-//            dialog.setVisible(true);
-        Transaction trs = new Transaction(this.user);
-        
-        trs.setOrders(Data.ArrOrder);
-        
-//        Data.add_Transaction(trs);
-        
-//        Data.ObjTransaction.add(trs); // tambahin ke db
-        try {
-            trs.save();
-        } catch (Exception ex) {
-            Logger.getLogger(NewPemesananUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        Data.ReduceStock(Data.ArrOrder);
-        Data.ResetOrder();
+            try {
+                Transaction trs = new Transaction(this.user);
+
+                trs.setOrders(ScreenData.ArrOrder);
+
+                trs.save();
+
+                ScreenData.ReduceStock(ScreenData.ArrOrder);
+                ScreenData.ResetOrder();
+            } catch (Exception ex) {
+                Logger.getLogger(NewPemesananUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

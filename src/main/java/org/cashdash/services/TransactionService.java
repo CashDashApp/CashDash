@@ -31,4 +31,16 @@ public class TransactionService {
 
         return transactions;
     }
+    
+        public static Transaction getTransactionById(String id) throws Exception {
+            
+        try (ResultSet result = Database.executeQuery("SELECT * FROM transactions WHERE id = ?",id)) {
+            while (result.next()){
+                Transaction transaction = new Transaction(result.getString("id"), result.getInt("user_id"), result.getDate("transaction_date"));
+                return transaction;
+            }
+        }
+
+        return null;
+    }
 }
