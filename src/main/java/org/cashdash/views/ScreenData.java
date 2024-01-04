@@ -102,7 +102,7 @@ public class ScreenData {
     public void getTableTransaction(){
         Transaction_Panel.setRowCount(0);
             for (Transaction ObjTransaction1 : ObjTransaction) {
-            Transaction_Panel.addRow(new Object[] {null, null,ObjTransaction1.getTotal(),ObjTransaction1.getDate()});
+            Transaction_Panel.addRow(new Object[] {ObjTransaction1.getId(), ObjTransaction1.getUser().getFullname(),ObjTransaction1.getTotal(),ObjTransaction1.getDate()});
             } 
     }
     

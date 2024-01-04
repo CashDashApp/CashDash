@@ -24,7 +24,9 @@ public class NewPemesananUI extends javax.swing.JPanel {
      * Creates new form NewPemesananUI
      */
     public NewPemesananUI(User user) {
+        this.user = user;
         initComponents();
+        System.out.println(user.getFullname());
     }
 
     /**
@@ -232,9 +234,10 @@ public class NewPemesananUI extends javax.swing.JPanel {
         }else{
 //            Data_Customer dialog = new Data_Customer(hp,true);
 //            dialog.setVisible(true);
-        Transaction trs = new Transaction(user);
+        Transaction trs = new Transaction(this.user);
         
         trs.setOrders(Data.ArrOrder);
+        
         Data.add_Transaction(trs);
         
         Data.ObjTransaction.add(trs); // tambahin ke db
