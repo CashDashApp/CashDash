@@ -43,4 +43,15 @@ public class TransactionService {
 
         return null;
     }
+        
+        public static int getHighestId() throws Exception {
+            int maxNumber = -1;
+            try (ResultSet result = Database.executeQuery("SELECT MAX(CAST(SUBSTRING(id, LENGTH('INV-YYMM')+1) AS SIGNED)) \n" + "FROM transaction\n" +"WHERE id LIKE 'INV-YYMM%';")){
+                
+                if (result.next()) {
+                    maxNumber = result.getInt(1);
+                }
+            }
+            return maxNumber;
+        }
 }

@@ -5,8 +5,9 @@ import org.cashdash.services.TransactionService;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+import java.util.Objects;
 import org.cashdash.services.UserService;
+import org.cashdash.utils.Rand;
 //import java.util.UUID;
 
 public class Transaction {
@@ -15,11 +16,11 @@ public class Transaction {
     private ArrayList<Order> orders;
     private Date date;
 
-    public Transaction(User user){
-        this.id = UUID.randomUUID().toString();
+    public Transaction(User user) throws Exception{
+        this.id = Rand.generateUniqueString();
         this.user = user;
         this.date = new Date();
-        this.orders = new ArrayList<Order>();
+        this.orders = new ArrayList<>();
     }
 
     public Transaction(String id, int uid, Date date) throws Exception {
@@ -35,7 +36,7 @@ public class Transaction {
         boolean productIsExistInOrders = false;
 
         for (Order order : this.orders) {
-            if (order.getProduct().getId() == product.getId()) {
+            if (Objects.equals(order.getProduct().getId(), product.getId())) {
                 order.addCount(count);
                 productIsExistInOrders = true;
                 break;
