@@ -240,9 +240,9 @@ public class NewPemesananUI extends javax.swing.JPanel {
         
         trs.setOrders(Data.ArrOrder);
         
-        Data.add_Transaction(trs);
+//        Data.add_Transaction(trs);
         
-        Data.ObjTransaction.add(trs); // tambahin ke db
+//        Data.ObjTransaction.add(trs); // tambahin ke db
         try {
             trs.save();
         } catch (Exception ex) {

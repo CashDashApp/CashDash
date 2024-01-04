@@ -18,13 +18,17 @@ public class TransactionService {
         );
     }
 
-    public static ArrayList<Order> getAll(String id) throws Exception {
-        ArrayList<Order> orders = new ArrayList<Order>();
-
-        try (ResultSet result = Database.executeQuery("SELECT * FROM transactions WHERE id = ?", id)) {
-            // TODO
+    public static ArrayList<Transaction> getAll() throws Exception {
+        
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+        
+        try (ResultSet result = Database.executeQuery("SELECT * FROM transactions")) {
+            while (result.next()){
+                Transaction transaction = new Transaction(result.getString("id"), result.getInt("user_id"), result.getDate("transaction_date"));
+                transactions.add(transaction);
+            }
         }
 
-        return orders;
+        return transactions;
     }
 }

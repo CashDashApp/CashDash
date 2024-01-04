@@ -14,6 +14,7 @@ import org.cashdash.models.Order;
 import org.cashdash.models.Product;
 import org.cashdash.models.Transaction;
 import org.cashdash.services.ProductService;
+import org.cashdash.services.TransactionService;
 
 public class ScreenData {
     public static ArrayList<Category> ObjCategory = new ArrayList<Category>();
@@ -99,9 +100,9 @@ public class ScreenData {
     }
     
     
-    public void getTableTransaction(){
+    public void getTableTransaction() throws Exception{
         Transaction_Panel.setRowCount(0);
-            for (Transaction ObjTransaction1 : ObjTransaction) {
+            for (Transaction ObjTransaction1 : TransactionService.getAll()) {
             Transaction_Panel.addRow(new Object[] {ObjTransaction1.getId(), ObjTransaction1.getUser().getFullname(),ObjTransaction1.getTotal(),ObjTransaction1.getDate()});
             } 
     }

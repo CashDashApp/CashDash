@@ -6,6 +6,7 @@ import org.cashdash.services.TransactionService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
+import org.cashdash.services.UserService;
 //import java.util.UUID;
 
 public class Transaction {
@@ -20,6 +21,16 @@ public class Transaction {
         this.date = new Date();
         this.orders = new ArrayList<Order>();
     }
+
+    public Transaction(String id, int uid, Date date) throws Exception {
+        this.id = id;
+        this.user = UserService.findById(uid);
+        this.orders = OrderService.getAll(id); //
+        this.date = date;
+    }
+    
+    
+    
     public void addOrder(Product product, int count) {
         boolean productIsExistInOrders = false;
 

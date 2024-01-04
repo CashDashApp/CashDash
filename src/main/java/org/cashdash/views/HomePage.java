@@ -13,6 +13,7 @@ public class HomePage extends javax.swing.JFrame {
     User user;
     
     public HomePage(User user) {
+        this.user = user;
         Data.get_Category();
         Data.get_Product();
         initComponents();
