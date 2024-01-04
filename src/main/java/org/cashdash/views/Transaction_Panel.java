@@ -4,7 +4,12 @@
  */
 package org.cashdash.views;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.cashdash.models.Order;
+import org.cashdash.models.Transaction;
 import org.cashdash.models.User;
+import org.cashdash.services.TransactionService;
 
 /**
  *
@@ -14,12 +19,13 @@ public class Transaction_Panel extends javax.swing.JPanel {
     ScreenData Data = new ScreenData();
     /**
      * Creates new form Transaction_Panel
+     * @throws java.lang.Exception
      */
-    public Transaction_Panel() {
-        Data.getTableTransaction();
+    public Transaction_Panel() throws Exception {
+        ScreenData.getTableTransaction();
         
         initComponents();
-        jTable1.setModel(Data.Transaction_Panel);
+        jTable1.setModel(ScreenData.Transaction_Panel);
     }
 
     /**
@@ -101,6 +107,18 @@ public class Transaction_Panel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow != -1){
+            try {
+                Transaction trs = TransactionService.getTransactionById((String) jTable1.getValueAt(selectedRow, 0));
+                for (Order order : trs.getOrders()) {
+                    System.out.println(order.getProduct().getName());
+                    System.out.println(order.getCount());
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(Transaction_Panel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
