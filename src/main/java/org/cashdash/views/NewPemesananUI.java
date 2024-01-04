@@ -6,6 +6,8 @@ package org.cashdash.views;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.cashdash.models.Order;
 import org.cashdash.models.Product;
 import org.cashdash.models.Transaction;
@@ -241,6 +243,11 @@ public class NewPemesananUI extends javax.swing.JPanel {
         Data.add_Transaction(trs);
         
         Data.ObjTransaction.add(trs); // tambahin ke db
+        try {
+            trs.save();
+        } catch (Exception ex) {
+            Logger.getLogger(NewPemesananUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         Data.ReduceStock(Data.ArrOrder);
         Data.ResetOrder();
