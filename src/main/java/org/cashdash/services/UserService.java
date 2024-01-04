@@ -21,7 +21,6 @@ public class UserService {
                     result.getString("fullname"),
                     result.getString("username"),
                     result.getString("password"),
-                    result.getBoolean("is_admin")
             );
 
             return u;

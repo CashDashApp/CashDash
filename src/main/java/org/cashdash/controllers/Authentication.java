@@ -18,7 +18,6 @@ public class Authentication {
 
         user.setId(ret.getId());
         user.setFullname(ret.getFullname());
-        user.setAdmin(ret.isAdmin());
     }
 
     public static void register(User user) throws Exception {
