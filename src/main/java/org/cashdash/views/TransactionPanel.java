@@ -15,13 +15,13 @@ import org.cashdash.services.TransactionService;
  *
  * @author HP
  */
-public class Transaction_Panel extends javax.swing.JPanel {
+public class TransactionPanel extends javax.swing.JPanel {
     ScreenData Data = new ScreenData();
     /**
      * Creates new form Transaction_Panel
      * @throws java.lang.Exception
      */
-    public Transaction_Panel() throws Exception {
+    public TransactionPanel() throws Exception {
         ScreenData.getTableTransaction();
         
         initComponents();
@@ -144,7 +144,7 @@ public class Transaction_Panel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addContainerGap())
@@ -236,7 +236,7 @@ public class Transaction_Panel extends javax.swing.JPanel {
                     System.out.println(order.getCount());
                 }
             } catch (Exception ex) {
-                Logger.getLogger(Transaction_Panel.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TransactionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

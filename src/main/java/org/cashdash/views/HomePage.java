@@ -283,9 +283,9 @@ public class HomePage extends javax.swing.JFrame {
     private void Storagebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Storagebtn1ActionPerformed
         Show_Panel.removeAll();
        
-        Storage_Panel Storage;
+        StoragePanel Storage;
         try {
-            Storage = new Storage_Panel(); // Instantiate the HomePanel
+            Storage = new StoragePanel(); // Instantiate the HomePanel
             Show_Panel.add(Storage);
             Show_Panel.repaint();
             Show_Panel.revalidate();
@@ -307,9 +307,9 @@ public class HomePage extends javax.swing.JFrame {
     private void Pemesananbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pemesananbtn2ActionPerformed
         Show_Panel.removeAll();
        
-        Transaction_Panel Transaksi;
+        TransactionPanel Transaksi;
         try {
-            Transaksi = new Transaction_Panel(); // Instantiate the HomePanel
+            Transaksi = new TransactionPanel(); // Instantiate the HomePanel
             Show_Panel.add(Transaksi);
             Show_Panel.repaint();
             Show_Panel.revalidate();

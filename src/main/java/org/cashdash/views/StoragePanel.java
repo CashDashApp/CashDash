@@ -8,12 +8,12 @@ package org.cashdash.views;
  *
  * @author HP
  */
-public class Storage_Panel extends javax.swing.JPanel {
+public class StoragePanel extends javax.swing.JPanel {
     ScreenData Data = new ScreenData();
     /**
      * Creates new form Storage_Panel
      */
-    public Storage_Panel() throws Exception {
+    public StoragePanel() throws Exception {
         
         initComponents();
         initStorage();
