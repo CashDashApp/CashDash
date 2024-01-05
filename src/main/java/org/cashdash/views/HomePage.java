@@ -49,17 +49,17 @@ public class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BackroundPanel.setBackground(new java.awt.Color(0, 153, 255));
+        BackroundPanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        Navigation_Panel.setBackground(new java.awt.Color(0, 153, 255));
+        Navigation_Panel.setBackground(new java.awt.Color(51, 51, 51));
         Navigation_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("CashDash");
 
         Pemesananbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Pemesananbtn1.setForeground(new java.awt.Color(0, 153, 255));
+        Pemesananbtn1.setForeground(new java.awt.Color(102, 102, 102));
         Pemesananbtn1.setText("Pemesanan");
         Pemesananbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         Storagebtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Storagebtn1.setForeground(new java.awt.Color(0, 153, 255));
+        Storagebtn1.setForeground(new java.awt.Color(102, 102, 102));
         Storagebtn1.setText("Storage");
         Storagebtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +86,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         Pemesananbtn2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Pemesananbtn2.setForeground(new java.awt.Color(0, 153, 255));
+        Pemesananbtn2.setForeground(new java.awt.Color(102, 102, 102));
         Pemesananbtn2.setText("Transaksi");
         Pemesananbtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,21 +130,22 @@ public class HomePage extends javax.swing.JFrame {
         Show_Panel.setBackground(new java.awt.Color(0, 153, 255));
         Show_Panel.setLayout(new java.awt.CardLayout());
 
-        Welcome_Panel.setBackground(new java.awt.Color(0, 153, 255));
+        Welcome_Panel.setBackground(new java.awt.Color(204, 204, 204));
         Welcome_Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
 
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("CashDash");
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("(Nama User)");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Waktu:");
 
         javax.swing.GroupLayout Welcome_PanelLayout = new javax.swing.GroupLayout(Welcome_Panel);
