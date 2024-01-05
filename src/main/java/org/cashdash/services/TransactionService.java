@@ -47,11 +47,11 @@ public class TransactionService {
         
         public static int getHighestId() throws Exception {
             int maxNumber = -1;
-            String sql = "SELECT id FROM transaction WHERE id LIKE 'INV-YYMM%';";
+            String sql = "SELECT id FROM transactions WHERE id LIKE 'INV-%';";
             try (ResultSet result = Database.executeQuery(sql)){
                 while (result != null && result.next()) {
                     String id = result.getString("id");
-                    int zzValue = Integer.parseInt(id.substring(id.lastIndexOf("MM") + 2););
+                    int zzValue = Integer.parseInt(id.substring(id.lastIndexOf("INV-") + 4));
                     if (zzValue > maxNumber) {
                         maxNumber = zzValue;
                     }
