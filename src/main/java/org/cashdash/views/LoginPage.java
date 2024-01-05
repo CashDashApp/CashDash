@@ -13,12 +13,12 @@ import org.cashdash.models.User;
  *
  * @author macbookair
  */
-public class Login_Page extends javax.swing.JFrame {
+public class LoginPage extends javax.swing.JFrame {
 
     /**
      * Creates new form Loginn
      */
-    public Login_Page() {
+    public LoginPage() {
         initComponents();
     }
 
@@ -73,7 +73,11 @@ public class Login_Page extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel3.setText("Password");
 
-        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton1.setText("LOG IN");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -241,9 +245,13 @@ public class Login_Page extends javax.swing.JFrame {
             HomePage h = new HomePage(user);
             h.setVisible(true);
         } catch (Exception ex) {
-            Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,21 +270,23 @@ public class Login_Page extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_Page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_Page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_Page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login_Page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_Page().setVisible(true);
+                new LoginPage().setVisible(true);
             }
         });
     }
