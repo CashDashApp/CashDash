@@ -41,6 +41,8 @@ public class HomePage extends javax.swing.JFrame {
         Show_Panel = new javax.swing.JPanel();
         Welcome_Panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         Pemesanan_Panel = new javax.swing.JPanel();
         PrintBill_Panel = new javax.swing.JPanel();
         Storage_Panel = new javax.swing.JPanel();
@@ -135,19 +137,40 @@ public class HomePage extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CashDash");
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("(Nama User)");
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Waktu:");
+
         javax.swing.GroupLayout Welcome_PanelLayout = new javax.swing.GroupLayout(Welcome_Panel);
         Welcome_Panel.setLayout(Welcome_PanelLayout);
         Welcome_PanelLayout.setHorizontalGroup(
             Welcome_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Welcome_PanelLayout.createSequentialGroup()
+            .addGroup(Welcome_PanelLayout.createSequentialGroup()
                 .addContainerGap(419, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(442, 442, 442))
+                .addGroup(Welcome_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Welcome_PanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(442, 442, 442))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Welcome_PanelLayout.createSequentialGroup()
+                        .addGroup(Welcome_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31))))
         );
         Welcome_PanelLayout.setVerticalGroup(
             Welcome_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Welcome_PanelLayout.createSequentialGroup()
-                .addContainerGap(362, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(353, 353, 353))
         );
@@ -328,5 +351,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel Welcome_Panel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
