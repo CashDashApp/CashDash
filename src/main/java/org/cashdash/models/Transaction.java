@@ -60,6 +60,8 @@ public class Transaction {
 
     
     public void save() throws Exception {
+        System.out.println(this.id);
+        System.out.println(user.getId());
         int transactionCreated = TransactionService.create(this.id, this.user);
         if (transactionCreated <= 0)
             throw new Exception("Couldn't create transaction");

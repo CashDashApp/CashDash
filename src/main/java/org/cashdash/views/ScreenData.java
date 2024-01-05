@@ -103,6 +103,7 @@ public class ScreenData {
             Product Prodak = ProductService.findById(JumlahPesanan.get(i).getProduct().getId());
             if(Prodak != null){
                 Prodak.setStock(Prodak.getStock() - JumlahPesanan.get(i).getCount());
+                ProductService.update(Prodak);
                 System.out.println(Prodak.getStock());
             }
         }

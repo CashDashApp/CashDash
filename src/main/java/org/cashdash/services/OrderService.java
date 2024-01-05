@@ -20,7 +20,7 @@ public class OrderService {
 
         try (ResultSet result = Database.executeQuery("SELECT * FROM orders WHERE transaction_id = ? ",id)) {
             while (result.next()) {
-                Order order = new Order(ProductService.findById(result.getInt("product_id")),result.getInt("count"));
+                Order order = new Order(ProductService.findById(result.getInt("product_id")),result.getInt("product_total"));
                 orders.add(order);
             }
         }

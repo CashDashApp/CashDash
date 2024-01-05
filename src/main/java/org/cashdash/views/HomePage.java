@@ -5,6 +5,8 @@
  */
 package org.cashdash.views;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.cashdash.models.User;
 
@@ -240,10 +242,16 @@ public class HomePage extends javax.swing.JFrame {
     private void Storagebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Storagebtn1ActionPerformed
         Show_Panel.removeAll();
        
-        Storage_Panel Storage = new Storage_Panel(); // Instantiate the HomePanel
-        Show_Panel.add(Storage);
-        Show_Panel.repaint();
-        Show_Panel.revalidate();
+        Storage_Panel Storage;
+        try {
+            Storage = new Storage_Panel(); // Instantiate the HomePanel
+            Show_Panel.add(Storage);
+            Show_Panel.repaint();
+            Show_Panel.revalidate();
+        } catch (Exception ex) {
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_Storagebtn1ActionPerformed
 
     private void LogOutbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutbtn2ActionPerformed
@@ -258,10 +266,16 @@ public class HomePage extends javax.swing.JFrame {
     private void Pemesananbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pemesananbtn2ActionPerformed
         Show_Panel.removeAll();
        
-        Transaction_Panel Transaksi = new Transaction_Panel(); // Instantiate the HomePanel
-        Show_Panel.add(Transaksi);
-        Show_Panel.repaint();
-        Show_Panel.revalidate();
+        Transaction_Panel Transaksi;
+        try {
+            Transaksi = new Transaction_Panel(); // Instantiate the HomePanel
+            Show_Panel.add(Transaksi);
+            Show_Panel.repaint();
+            Show_Panel.revalidate();
+        } catch (Exception ex) {
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_Pemesananbtn2ActionPerformed
 
     /**

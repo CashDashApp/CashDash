@@ -51,7 +51,9 @@ public class TransactionService {
             try (ResultSet result = Database.executeQuery(sql)){
                 while (result != null && result.next()) {
                     String id = result.getString("id");
-                    int zzValue = Integer.parseInt(id.substring(id.lastIndexOf("INV-") + 4));
+                    
+                    int zzValue = Integer.parseInt(id.substring(8));
+                    System.out.println(zzValue);
                     if (zzValue > maxNumber) {
                         maxNumber = zzValue;
                     }

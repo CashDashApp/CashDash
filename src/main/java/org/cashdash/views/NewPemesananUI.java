@@ -114,7 +114,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CashDash");
 
-        jTable1.setModel(Data.Print_Bill);
+        jTable1.setModel(ScreenData.Print_Bill);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
