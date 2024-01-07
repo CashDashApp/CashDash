@@ -76,4 +76,8 @@ public class ProductService {
             product.getId()
         );
     }
+    
+    public static int deleteById(int id){
+        return Database.executeUpdate("DELETE FROM products WHERE id = ?",id);
+    }
 }
