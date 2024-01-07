@@ -21,15 +21,14 @@ public class LoginPage extends javax.swing.JFrame {
     public LoginPage() {
         initComponents();
         
-        emptyTextField = new javax.swing.JDialog(this, true);
-        javax.swing.JLabel emptyLabel = new javax.swing.JLabel("Username and password cannot be empty.");
-        emptyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER); // Menempatkan JLabel di tengah
+        emptyLabel.setText("Username and password cannot be empty.");
+        emptyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         emptyTextField.add(emptyLabel);
         emptyTextField.setSize(490, 350);
         emptyTextField.setVisible(false);
         
-        javax.swing.JLabel wrongLabel = new javax.swing.JLabel("Invalid username or password.");
-        wrongLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER); // Menempatkan JLabel di tengah
+        wrongLabel.setText("Invalid username or password.");
+        wrongLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wrongUsernamePassword.add(wrongLabel);
         wrongUsernamePassword.setSize(490, 350);
         wrongUsernamePassword.setVisible(false);
@@ -45,7 +44,9 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         wrongUsernamePassword = new javax.swing.JDialog();
+        wrongLabel = new javax.swing.JLabel();
         emptyTextField = new javax.swing.JDialog();
+        emptyLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -61,26 +62,42 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
+        wrongLabel.setText("jLabel7");
+
         javax.swing.GroupLayout wrongUsernamePasswordLayout = new javax.swing.GroupLayout(wrongUsernamePassword.getContentPane());
         wrongUsernamePassword.getContentPane().setLayout(wrongUsernamePasswordLayout);
         wrongUsernamePasswordLayout.setHorizontalGroup(
             wrongUsernamePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(wrongUsernamePasswordLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(wrongLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
         );
         wrongUsernamePasswordLayout.setVerticalGroup(
             wrongUsernamePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(wrongUsernamePasswordLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(wrongLabel)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
+
+        emptyLabel.setText("jLabel7");
 
         javax.swing.GroupLayout emptyTextFieldLayout = new javax.swing.GroupLayout(emptyTextField.getContentPane());
         emptyTextField.getContentPane().setLayout(emptyTextFieldLayout);
         emptyTextFieldLayout.setHorizontalGroup(
             emptyTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(emptyTextFieldLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(emptyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
         );
         emptyTextFieldLayout.setVerticalGroup(
             emptyTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(emptyTextFieldLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(emptyLabel)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -334,6 +351,7 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel emptyLabel;
     private javax.swing.JDialog emptyTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -349,6 +367,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel wrongLabel;
     private javax.swing.JDialog wrongUsernamePassword;
     // End of variables declaration//GEN-END:variables
 }
