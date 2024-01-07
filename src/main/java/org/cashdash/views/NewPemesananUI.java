@@ -44,6 +44,8 @@ public class NewPemesananUI extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        idNotFound = new javax.swing.JDialog();
+        nullTotal = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -109,6 +111,28 @@ public class NewPemesananUI extends javax.swing.JPanel {
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        javax.swing.GroupLayout idNotFoundLayout = new javax.swing.GroupLayout(idNotFound.getContentPane());
+        idNotFound.getContentPane().setLayout(idNotFoundLayout);
+        idNotFoundLayout.setHorizontalGroup(
+            idNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        idNotFoundLayout.setVerticalGroup(
+            idNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout nullTotalLayout = new javax.swing.GroupLayout(nullTotal.getContentPane());
+        nullTotal.getContentPane().setLayout(nullTotalLayout);
+        nullTotalLayout.setHorizontalGroup(
+            nullTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        nullTotalLayout.setVerticalGroup(
+            nullTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -272,6 +296,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog idNotFound;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -287,5 +312,6 @@ public class NewPemesananUI extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JDialog nullTotal;
     // End of variables declaration//GEN-END:variables
 }

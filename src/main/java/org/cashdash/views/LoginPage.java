@@ -31,7 +31,8 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
+        wrongUsernamePassword = new javax.swing.JDialog();
+        emptyTextField = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -47,7 +48,27 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        jTextField2.setText("jTextField2");
+        javax.swing.GroupLayout wrongUsernamePasswordLayout = new javax.swing.GroupLayout(wrongUsernamePassword.getContentPane());
+        wrongUsernamePassword.getContentPane().setLayout(wrongUsernamePasswordLayout);
+        wrongUsernamePasswordLayout.setHorizontalGroup(
+            wrongUsernamePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        wrongUsernamePasswordLayout.setVerticalGroup(
+            wrongUsernamePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout emptyTextFieldLayout = new javax.swing.GroupLayout(emptyTextField.getContentPane());
+        emptyTextField.getContentPane().setLayout(emptyTextFieldLayout);
+        emptyTextFieldLayout.setHorizontalGroup(
+            emptyTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        emptyTextFieldLayout.setVerticalGroup(
+            emptyTextFieldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 255));
@@ -292,6 +313,7 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog emptyTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -305,7 +327,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JDialog wrongUsernamePassword;
     // End of variables declaration//GEN-END:variables
 }
