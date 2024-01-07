@@ -106,11 +106,11 @@
                       <Component id="jLabel2" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                       <Component id="Pemesananbtn1" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="Pemesananbtn2" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="Storagebtn1" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="LogOutbtn2" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>

@@ -24,6 +24,7 @@ public class ScreenData {
     public static DefaultTableModel Print_Bill = new DefaultTableModel(null,new String [] {"ID", "Nama", "Jenis", "Harga Satuan", "Jumlah Pesanan", "Total"});
     public static DefaultTableModel Storage_Panel = new DefaultTableModel(null,new String [] {"ID", "Barang", "Sisa Stock"});
     public static DefaultTableModel Transaction_Panel = new DefaultTableModel(null, new String [] {"IDTransaksi", "Cashier", "Harga", "Date"});
+    public static DefaultTableModel Details_Panel = new DefaultTableModel(null,new String [] {"ID", "Barang", "Harga","Jumlah Pesanan","Total"});
     
     
     public void get_Category(){
@@ -109,5 +110,6 @@ public class ScreenData {
         }
         System.out.println(ObjProduct.size());
     }
+
     
 }

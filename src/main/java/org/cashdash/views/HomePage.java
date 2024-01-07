@@ -119,11 +119,11 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110)
                 .addComponent(Pemesananbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(48, 48, 48)
                 .addComponent(Pemesananbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(51, 51, 51)
                 .addComponent(Storagebtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(60, 60, 60)
                 .addComponent(LogOutbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -287,6 +287,8 @@ public class HomePage extends javax.swing.JFrame {
             Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        
+        
     }//GEN-LAST:event_Storagebtn1ActionPerformed
 
     private void LogOutbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutbtn2ActionPerformed
@@ -299,6 +301,8 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_LogOutbtn2ActionPerformed
 
     private void Pemesananbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pemesananbtn2ActionPerformed
+        
+        
         Show_Panel.removeAll();
        
         TransactionPanel Transaksi;
