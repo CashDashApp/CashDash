@@ -1,8 +1,3 @@
-import org.cashdash.controllers.Authentication;
-import org.cashdash.models.User;
-import org.cashdash.services.UserService;
-import org.cashdash.utils.Rand;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AuthenticationTests {
