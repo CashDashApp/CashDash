@@ -27,7 +27,7 @@ public class LoginPage extends javax.swing.JFrame {
         
         wrongLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Alert.setSize(413, 302);
+        invalidCredentials.setSize(413, 302);
     }
 
     /**
@@ -39,7 +39,7 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Alert = new javax.swing.JDialog();
+        invalidCredentials = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         wrongLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -62,7 +62,7 @@ public class LoginPage extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -78,6 +78,11 @@ public class LoginPage extends javax.swing.JFrame {
         wrongLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -103,16 +108,22 @@ public class LoginPage extends javax.swing.JFrame {
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout AlertLayout = new javax.swing.GroupLayout(Alert.getContentPane());
-        Alert.getContentPane().setLayout(AlertLayout);
-        AlertLayout.setHorizontalGroup(
-            AlertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout invalidCredentialsLayout = new javax.swing.GroupLayout(invalidCredentials.getContentPane());
+        invalidCredentials.getContentPane().setLayout(invalidCredentialsLayout);
+        invalidCredentialsLayout.setHorizontalGroup(
+            invalidCredentialsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        AlertLayout.setVerticalGroup(
-            AlertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        invalidCredentialsLayout.setVerticalGroup(
+            invalidCredentialsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        emptyTextField.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                emptyTextFieldComponentHidden(evt);
+            }
+        });
 
         jPanel7.setBackground(new java.awt.Color(51, 51, 51));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 20, true));
@@ -122,6 +133,11 @@ public class LoginPage extends javax.swing.JFrame {
         emptyLabel.setText("Username or Password Cannot be Empty!");
 
         jButton2.setText("OK");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -178,6 +194,11 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel7.setText("Password must be at least 8 characters!");
 
         jButton3.setText("OK");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -244,10 +265,10 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton1.setText("LOG IN");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("LOG IN");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -273,8 +294,8 @@ public class LoginPage extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(87, 87, 87))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -290,9 +311,9 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -400,31 +421,59 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
         try {
             String uname,pw;
             uname = jTextField1.getText();
             pw = new String(jPasswordField1.getPassword());
-            
+
             if(uname.isEmpty() || pw.isEmpty()) {
                 emptyTextField.setVisible(true);
+                jButton4.setEnabled(false);
+            } else if (pw.length() <= 8) {
+                mustbe8char.setVisible(true);
+                jButton4.setEnabled(false);
             }
-            
+
             User user = new User(uname, pw);
             if (Authentication.login(user)) {
                 HomePage h = new HomePage(user);
                 h.setVisible(true);
             } else {
-                Alert.setVisible(true);
+                invalidCredentials.setVisible(true);
+                jButton4.setEnabled(false);
             }
         } catch (Exception ex) {
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void emptyTextFieldComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_emptyTextFieldComponentHidden
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_emptyTextFieldComponentHidden
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        emptyTextField.dispose();
+        jButton4.setEnabled(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        invalidCredentials.dispose();
+        jButton4.setEnabled(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        mustbe8char.setVisible(true);
+        jButton4.setEnabled(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,12 +514,13 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog Alert;
     private javax.swing.JLabel emptyLabel;
     private javax.swing.JDialog emptyTextField;
+    private javax.swing.JDialog invalidCredentials;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -490,7 +540,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JDialog mustbe8char;
     private javax.swing.JLabel wrongLabel;
     // End of variables declaration//GEN-END:variables
