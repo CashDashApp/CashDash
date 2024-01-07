@@ -44,7 +44,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        Alert = new javax.swing.JDialog();
+        idNotFound = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -119,28 +119,35 @@ public class NewPemesananUI extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        idNotFound.setTitle("Alert");
+
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 20, true));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID not Found!please check again!");
+        jLabel2.setText("ID produk tidak ditemukan !");
 
         jButton4.setText("OK");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(83, 83, 83))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addGap(100, 100, 100)
+                .addComponent(jLabel2)
+                .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(158, 158, 158))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,16 +159,18 @@ public class NewPemesananUI extends javax.swing.JPanel {
                 .addContainerGap(97, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout AlertLayout = new javax.swing.GroupLayout(Alert.getContentPane());
-        Alert.getContentPane().setLayout(AlertLayout);
-        AlertLayout.setHorizontalGroup(
-            AlertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout idNotFoundLayout = new javax.swing.GroupLayout(idNotFound.getContentPane());
+        idNotFound.getContentPane().setLayout(idNotFoundLayout);
+        idNotFoundLayout.setHorizontalGroup(
+            idNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        AlertLayout.setVerticalGroup(
-            AlertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        idNotFoundLayout.setVerticalGroup(
+            idNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        nullTotal.setTitle("Alert");
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 20, true));
@@ -171,6 +180,11 @@ public class NewPemesananUI extends javax.swing.JPanel {
         jLabel3.setText("Jumlah Tidak Boleh 0 ! Masukan Angka lain !");
 
         jButton5.setText("OK");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -331,26 +345,16 @@ public class NewPemesananUI extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ScreenData.Print_Bill.addRow(new Object[]{Prodak.getId(), Prodak.getName(), Prodak.getCategory().getName(), Prodak.getPrice(), jTextField2.getText(), Integer.parseInt(jTextField2.getText()) * Prodak.getPrice()});
-        Order ObjOrder = new Order(Prodak, Integer.parseInt(jTextField2.getText()));
-        ScreenData.ArrOrder.add(ObjOrder);
-        
-        jDialog1.dispose();
-        
-        jTextField2.setText("");
-        
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(ScreenData.ArrOrder.isEmpty()){
-            System.out.println("Isi Order tidak boleh kosong");
+            idNotFound.setVisible(true);
+            jButton1.setEnabled(false);
         }else{
+            
             try {
                 Transaction trs = new Transaction(this.user);
 
@@ -366,9 +370,37 @@ public class NewPemesananUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    if (jTextField2.getText().equals("0") || jTextField2.getText().length() == 0) {
+        nullTotal.setVisible(true);
+        jTextField2.setText("");
+        jButton3.setEnabled(false);
+    } else {
+        ScreenData.Print_Bill.addRow(new Object[]{Prodak.getId(), Prodak.getName(), Prodak.getCategory().getName(), Prodak.getPrice(), jTextField2.getText(), Integer.parseInt(jTextField2.getText()) * Prodak.getPrice()});
+        Order ObjOrder = new Order(Prodak, Integer.parseInt(jTextField2.getText()));
+        ScreenData.ArrOrder.add(ObjOrder);
+
+        jDialog1.dispose();
+
+        jTextField2.setText("");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        nullTotal.dispose();
+        jButton3.setEnabled(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        idNotFound.dispose();
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog Alert;
+    private javax.swing.JDialog idNotFound;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
