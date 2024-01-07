@@ -78,8 +78,8 @@ CREATE TABLE equipments
     id          INT AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(50) NOT NULL,
     stock       INT DEFAULT 0,
-    description VARCHAR(256),
-    price DOUBLE DEFAULT 0.0
+    condition VARCHAR(50),
+    description VARCHAR(256)
 );
 
 
@@ -120,11 +120,10 @@ VALUES ('trans1', 1, 2),
        ('trans3', 5, 2);
 
 -- Seeder for equipments table
-INSERT INTO equipments (name, stock, description, price)
-VALUES ('Laptop', 10, 'High-performance laptop', 1299.99),
-       ('Power Drill', 5, 'Cordless drill with various attachments', 89.99),
-       ('Coffee Maker', 15, 'Automatic coffee maker', 49.99),
-       ('Treadmill', 2, 'Foldable treadmill for home use', 699.99);
+INSERT INTO equipments (name, stock,condition, description)
+VALUES ('Laptop', 1,'Good', 'High-performance laptop'),
+       ('Printer Thermal', 3,'New' ,'Printer Thermal'),
+       ('Coffee Maker', 4, 'Not Good','Automatic coffee maker'),
 
 
 -- Enable foreign key checks after seeding
