@@ -16,10 +16,23 @@ import org.cashdash.models.User;
 public class LoginPage extends javax.swing.JFrame {
 
     /**
-     * Creates new form Loginn
+     * Creates new form Login
      */
     public LoginPage() {
         initComponents();
+        
+        emptyTextField = new javax.swing.JDialog(this, true);
+        javax.swing.JLabel emptyLabel = new javax.swing.JLabel("Username and password cannot be empty.");
+        emptyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER); // Menempatkan JLabel di tengah
+        emptyTextField.add(emptyLabel);
+        emptyTextField.setSize(490, 350);
+        emptyTextField.setVisible(false);
+        
+        javax.swing.JLabel wrongLabel = new javax.swing.JLabel("Invalid username or password.");
+        wrongLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER); // Menempatkan JLabel di tengah
+        wrongUsernamePassword.add(wrongLabel);
+        wrongUsernamePassword.setSize(490, 350);
+        wrongUsernamePassword.setVisible(false);
     }
 
     /**
@@ -261,10 +274,18 @@ public class LoginPage extends javax.swing.JFrame {
             String uname,pw;
             uname = jTextField1.getText();
             pw = new String(jPasswordField1.getPassword());
+            
+            if(uname.isEmpty() || pw.isEmpty()) {
+                emptyTextField.setVisible(true);
+            }
+            
             User user = new User(uname, pw);
-            Authentication.login(user);
-            HomePage h = new HomePage(user);
-            h.setVisible(true);
+            if (Authentication.login(user)) {
+                HomePage h = new HomePage(user);
+                h.setVisible(true);
+            } else {
+                wrongUsernamePassword.setVisible(true);
+            }
         } catch (Exception ex) {
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }

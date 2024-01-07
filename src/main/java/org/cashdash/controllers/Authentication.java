@@ -5,7 +5,7 @@ import org.cashdash.services.UserService;
 import org.cashdash.utils.Hash;
 
 public class Authentication {
-    public static void login(User user) throws Exception {
+    public static boolean login(User user) throws Exception {
         User ret = UserService.findByUsername(user.getUsername());
 
         if (ret == null)
@@ -18,6 +18,7 @@ public class Authentication {
 
         user.setId(ret.getId());
         user.setFullname(ret.getFullname());
+        return false;
     }
 
     public static void register(User user) throws Exception {
