@@ -4,8 +4,8 @@
  */
 package org.cashdash.views;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.*;
+import java.util.logging.*;
 import org.cashdash.controllers.Authentication;
 import org.cashdash.models.User;
 
@@ -20,18 +20,14 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        
-        emptyLabel.setText("Username and password cannot be empty.");
+                
         emptyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        emptyTextField.add(emptyLabel);
-        emptyTextField.setSize(490, 350);
-        emptyTextField.setVisible(false);
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        emptyTextField.setSize(413, 302);
         
-        wrongLabel.setText("Invalid username or password.");
         wrongLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Alert.add(wrongLabel);
-        Alert.setSize(490, 350);
-        Alert.setVisible(false);
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Alert.setSize(413, 302);
     }
 
     /**
@@ -73,6 +69,7 @@ public class LoginPage extends javax.swing.JFrame {
         wrongLabel.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
         wrongLabel.setForeground(new java.awt.Color(255, 255, 255));
         wrongLabel.setText("Incorrect Password or Username ");
+        wrongLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton1.setText("OK");
 
@@ -83,12 +80,12 @@ public class LoginPage extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(wrongLabel))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addComponent(jButton1)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(wrongLabel)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
