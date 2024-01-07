@@ -1,4 +1,11 @@
--- Disable foreign key checks for the seed
+
+DROP DATABASE IF EXISTS cashdash;
+CREATE DATABASE cashdash;
+
+use cashdash;
+
+
+-- Disable foreign key checks
 SET
 FOREIGN_KEY_CHECKS=0;
 -- Table: category
