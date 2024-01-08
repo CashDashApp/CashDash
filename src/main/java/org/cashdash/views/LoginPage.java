@@ -441,7 +441,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
 
             User user = new User(uname, pw);
-            if (Authentication.login(user)) {
+            if (!Authentication.login(user)) {
                 HomePage h = new HomePage(user);
                 h.setVisible(true);
             } else {

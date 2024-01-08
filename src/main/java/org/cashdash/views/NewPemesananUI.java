@@ -338,7 +338,8 @@ public class NewPemesananUI extends javax.swing.JPanel {
                 jDialog1.setSize(490, 350);
                 
             }else{
-                System.out.println("ID Tidak Ditemukan Silahkan Input Ulang");
+                idNotFound.setVisible(true);
+                idNotFound.setSize(490, 350);
             }
             jTextField1.setText("");
         } catch (Exception ex) {
@@ -354,6 +355,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(ScreenData.ArrOrder.isEmpty()){
             idNotFound.setVisible(true);
+            idNotFound.setSize(490, 350);
             jButton1.setEnabled(false);
         }else{
             
@@ -375,6 +377,7 @@ public class NewPemesananUI extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     if (jTextField2.getText().equals("0") || jTextField2.getText().length() == 0) {
         nullTotal.setVisible(true);
+        nullTotal.setSize(490, 350);
         jTextField2.setText("");
         jButton3.setEnabled(false);
     } else {

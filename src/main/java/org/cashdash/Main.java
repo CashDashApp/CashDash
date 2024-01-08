@@ -23,7 +23,7 @@ public class Main {
                 System.out.println(p.getId() + " -> " + p.getName());
             }
 
-            User u = new User("Testing User",  "testing4","testing");
+            User u = new User("Testing User",  "Abdul","12345678");
             
             Authentication.register(u);
             Authentication.login(u);
