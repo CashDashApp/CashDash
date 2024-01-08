@@ -104,8 +104,7 @@ INSERT INTO equipments (name, stock, condition, description)
 VALUES ('Laptop', 1,'Good', 'High-performance laptop'),
        ('Printer Thermal', 3,'New' ,'Printer Thermal'),
        ('Coffee Maker', 4, 'Not Good','Automatic coffee maker'),
-       ('Toaster', 2, 'Good', 'Automatic for baking bread, meat and sausages.'),
-
+       ('Toaster', 2, 'Good', 'Automatic for baking bread, meat and sausages.');
 
 -- Enable foreign key checks after seeding
 SET
