@@ -93,37 +93,18 @@ VALUES ('Electronics'),
 
 -- Seeder for products table
 INSERT INTO products (name, stock, category_id, description, price)
-VALUES ('Smartphone', 50, 1, 'Latest model with advanced features', 699.99),
-       ('T-Shirt', 100, 2, 'Cotton, round neck, assorted colors', 19.99),
-       ('Garden Chair', 30, 3, 'Comfortable outdoor chair', 49.99),
-       ('Programming Book', 20, 4, 'Introduction to programming', 29.99),
-       ('Toy Car', 50, 5, 'Remote-controlled car for kids', 39.99);
-
--- Seeder for users table
-INSERT INTO users (id, fullname, username, password)
-VALUES ('user1', 'John Doe', 'john_doe', 'hashed_password_1'),
-       ('user2', 'Jane Smith', 'jane_smith', 'hashed_password_2'),
-       ('user3', 'Bob Johnson', 'bob_johnson', 'hashed_password_3');
-
--- Seeder for transactions table
-INSERT INTO transactions (id, user_id, transaction_date)
-VALUES ('trans1', 1, '2024-01-04'),
-       ('trans2', 2, '2024-01-04'),
-       ('trans3', 3, '2024-01-04');
-
--- Seeder for orders table
-INSERT INTO orders (transaction_id, product_id, product_total)
-VALUES ('trans1', 1, 2),
-       ('trans1', 3, 1),
-       ('trans2', 2, 3),
-       ('trans3', 4, 1),
-       ('trans3', 5, 2);
+VALUES ('Smartphone', 50, 1, 'Latest model with advanced features', 2000000),
+       ('T-Shirt', 100, 2, 'Cotton, round neck, assorted colors', 100000),
+       ('Garden Chair', 30, 3, 'Comfortable outdoor chair', 80000),
+       ('Programming Book', 20, 4, 'Introduction to programming', 150000),
+       ('Toy Car', 50, 5, 'Remote-controlled car for kids', 60000);
 
 -- Seeder for equipments table
-INSERT INTO equipments (name, stock,condition, description)
+INSERT INTO equipments (name, stock, condition, description)
 VALUES ('Laptop', 1,'Good', 'High-performance laptop'),
        ('Printer Thermal', 3,'New' ,'Printer Thermal'),
        ('Coffee Maker', 4, 'Not Good','Automatic coffee maker'),
+       ('Toaster', 2, 'Good', 'Automatic for baking bread, meat and sausages.'),
 
 
 -- Enable foreign key checks after seeding
